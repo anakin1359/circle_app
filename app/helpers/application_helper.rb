@@ -3,7 +3,7 @@ module ApplicationHelper
   def full_title(page_title)
     if page_title.empty?
       BASE_TITLE
-    else 
+    else
       "#{page_title} | #{BASE_TITLE}"
     end
   end
