@@ -7,7 +7,7 @@ RSpec.describe "StaticPages", type: :system do
       driven_by(:rack_test)
       visit root_path
     end
-    
+
     context "Home画面内のリンクの挙動をテスト" do
       it "ロゴのリンクが正しく設定されている" do
         click_link "Circle App"
