@@ -1,6 +1,14 @@
 <% provide(:title, "Home") %>
-<h1>Circle App Home</h1>
-<p>
-  Contact the Ruby on Rails Tutorial about the sample app at the
-  <a href="https://railstutorial.jp/contact">contact page</a>.
-</p>
+<div class="center jumbotron">
+  <h1>Welcome to the Sample App</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
