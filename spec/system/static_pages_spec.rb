@@ -21,6 +21,13 @@ RSpec.describe "StaticPages", type: :system do
         expect(current_path).to eq root_path
       end
 
+      it "ナビゲーションバーの新規会員登録ページへのリンクが正しく設定されている" do
+        within ".navbar-right" do
+          click_link "signup"
+        end
+        expect(current_path).to eq signup_path
+      end
+
       it "footer部のcontactページへのリンクが正しく設定されている" do
         click_link "Contact"
         expect(current_path).to eq contact_path
