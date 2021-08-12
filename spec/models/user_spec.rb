@@ -12,15 +12,17 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
     end
 
-    # it "氏名未入力の場合は無効としている" do
-    #   user = User.new(name: nil)
-    #   user.valid?
-    #   expect(user.errors[:name]).to include("cant't be blank")
-    # end
+    it "氏名未入力の場合は無効としている" do
+      user = User.new(name: nil)
+      user.valid?
+      expect(user.errors[:name]).to include("can't be blank")
+    end
 
-    # it "メールアドレス未入力の場合は無効としている" do
-    #   #
-    # end
+    it "メールアドレス未入力の場合は無効としている" do
+      user = User.new(email: nil)
+      user.valid?
+      expect(user.errors[:email]).to include("can't be blank")
+    end
 
     # it "パスワード未入力の場合は無効としている" do
     #   #
