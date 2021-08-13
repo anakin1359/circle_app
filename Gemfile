@@ -52,7 +52,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-airbnb'
-  gem 'annotate'
   gem 'bullet'
 end
 
