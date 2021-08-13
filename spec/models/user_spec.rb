@@ -35,6 +35,12 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:email]).to include("is too long (maximum is 255 characters)")
     end
+    
+    it "メールアドレスのフォーマットに合致しない場合は無効としている" do
+      user = User.new(email: "test001@examole.com.")
+      user.valid?
+      expect(user.errors[:email]).to include("is invalid")
+    end
 
     # it "パスワード未入力の場合は無効としている" do
     #   #
