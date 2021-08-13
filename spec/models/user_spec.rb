@@ -4,8 +4,8 @@ RSpec.describe User, type: :model do
   describe "User_modelのテスト" do
     it "氏名, メールアドレス, パスワード(確認含む)が全て入力されている" do
       user = User.new(
-        name:     "user01",
-        email:    "user01@example.com",
+        name: "user01",
+        email: "user01@example.com",
         # password: "password00",
         # password_confirmation: "password00",
       )
@@ -53,7 +53,8 @@ RSpec.describe User, type: :model do
     it "登録済みのメールアドレスの場合は無効としている" do
       user = User.create(name: "user01", email: "user01@example.com")
       fake_user = User.create(name: "user02", email: "user01@example.com")
-      expect(fake_user).to_not be_valid
+      expect(user).to be_valid
+      expect(fake_user).not_to be_valid
       expect(fake_user.errors[:email]).to include("has already been taken")
     end
 
