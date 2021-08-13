@@ -53,6 +53,7 @@ GEM
     ast (2.4.2)
     autoprefixer-rails (10.3.1.0)
       execjs (~> 2)
+    bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.7.7)
       msgpack (~> 1.0)
@@ -91,6 +92,12 @@ GEM
       dry-validation (~> 1.0, >= 1.0.0)
     crass (1.0.6)
     deep_merge (1.2.1)
+    devise (4.8.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -164,6 +171,7 @@ GEM
     nokogiri (1.12.1)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
@@ -220,6 +228,9 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rexml (3.2.5)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
@@ -299,6 +310,8 @@ GEM
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.6.1)
     uniform_notifier (1.14.2)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -324,6 +337,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   config
+  devise
   dotenv-rails
   jbuilder (~> 2.5)
   jquery-rails

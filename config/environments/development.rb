@@ -58,4 +58,10 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Set default URL to be included in authentication email (for development environment)
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  #Set default URL to be included in authentication email (for production environment)
+  # config.action_mailer.default_url_options = { protocol: 'https', port: '192.168.xxx.xxx' }
 end
