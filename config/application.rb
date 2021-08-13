@@ -15,6 +15,11 @@ module Develop
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # Setup Rails I18n
+    config.i18n.default_locale = :ja
+
+    # Setup RSpec
     config.generators do |g|
       g.test_framework :rspec,
       fixtures: false,
