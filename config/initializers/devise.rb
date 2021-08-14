@@ -46,7 +46,8 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   config.password_length = 6..128
-  config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  # config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  config.email_regexp = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   # ==> Configuration for :timeoutable
   # config.timeout_in = 30.minutes
