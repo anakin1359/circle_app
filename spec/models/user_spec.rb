@@ -6,14 +6,14 @@ RSpec.describe User, type: :model do
       user = User.new(
         name: "user01",
         email: "user01@example.com",
-        # password: "password00",
+        encrypted_password: "password01",
         # password_confirmation: "password00",
       )
       expect(user).to be_valid
     end
 
     it "氏名未入力の場合は無効としている" do
-      user = User.new(name: nil)
+      user = User.new(name: nil, email: "user01@example.com", encrypted_password: "password01")
       user.valid?
       expect(user.errors[:name]).to include("can't be blank")
     end
