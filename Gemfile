@@ -54,6 +54,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-airbnb'
   gem 'bullet'
+  gem 'faker'
 end
 
 group :development do
