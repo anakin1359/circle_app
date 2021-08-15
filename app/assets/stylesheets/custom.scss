@@ -192,12 +192,11 @@ input {
   color: #a94442;
 }
 
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
+#user_remember_me {
+  float: left;
+  width: auto;
+  .remember_style {
+    padding-left: 30px;
   }
 }
 
