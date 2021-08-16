@@ -42,6 +42,9 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'jquery-rails'
 gem 'devise'
 gem 'devise-i18n'
+gem 'will_paginate',           '3.1.7'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
