@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'support/capybara'
 
 RSpec.describe "StaticPages", type: :system do
-  describe "StaticPageのテスト" do
+  describe "ホーム画面のテスト" do
     before do
       driven_by(:rack_test)
       visit root_path
