@@ -55,7 +55,7 @@ RSpec.describe "Users", type: :system do
       end
 
       it "登録ボタンが表示されている" do
-        # ボタンの存在性確認
+        expect(page).to have_button('signup')
       end
     end
 
@@ -73,7 +73,7 @@ RSpec.describe "Users", type: :system do
       end
 
       it "ログインボタンが表示されている" do
-        # ボタンの存在性確認
+        expect(page).to have_button('Log in')
       end
     end
   end
@@ -125,7 +125,28 @@ RSpec.describe "Users", type: :system do
     end
 
     context "ユーザ編集画面内に" do
-      it "正しい情報が表示されている" do
+      before do
+        visit edit_user_registration_path
+      end
+      
+      it "メールアドレスの項目が表示されている" do
+        expect(page).to have_text('メールアドレス')
+      end
+
+      it "現在のパスワードの項目が表示されている" do
+        expect(page).to have_text('現在のパスワード')
+      end
+      
+      it "新しいパスワードの項目が表示されている" do
+        expect(page).to have_text('パスワード')
+      end
+
+      it "確認用パスワードの項目が表示されている" do
+        expect(page).to have_text('確認用パスワード')
+      end
+
+      it "更新ボタンが表示されている" do
+        expect(page).to have_button('Update')
       end
     end
   end
