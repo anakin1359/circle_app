@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationHelper, type: :helper do
-  describe "Application_Helperのテスト" do
+  describe "全画面共通のヘルパーメソッドを使用" do
     context "ページタイトルが存在する場合" do
       it "「full_title」 、及び 「サークル運営サイト」の両方が表示されている" do
         expect(full_title("title")).to eq "title | サークル運営サイト"

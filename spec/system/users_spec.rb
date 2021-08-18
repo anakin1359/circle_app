@@ -188,7 +188,28 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_text('ログインしました')
     end
 
-    scenario "失敗した場合はflashメッセージ（alert）が表示されている" do
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（メールアドレス未入力）" do
+      fill_in('user[email]',    with: '')
+      fill_in('user[password]', with: 'password01')
+      click_button('Log in')
+      expect(page).to have_text('メールアドレスまたはパスワードが違います')
+    end
+
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（メールアドレス不一致）" do
+      fill_in('user[email]',    with: 'user10@example.com')
+      fill_in('user[password]', with: 'password01')
+      click_button('Log in')
+      expect(page).to have_text('メールアドレスまたはパスワードが違います')
+    end
+
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（パスワード未入力）" do
+      fill_in('user[email]',    with: 'user01@example.com')
+      fill_in('user[password]', with: '')
+      click_button('Log in')
+      expect(page).to have_text('メールアドレスまたはパスワードが違います')
+    end
+
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（パスワード不一致）" do
       fill_in('user[email]',    with: 'user01@example.com')
       fill_in('user[password]', with: 'password10')
       click_button('Log in')
@@ -212,13 +233,49 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_text('アカウント情報を変更しました')
     end
 
-    scenario "失敗した場合はflashメッセージ（alert）が表示されている" do
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（メールアドレス未入力）" do
+      fill_in('user[email]',                 with: '')
+      fill_in('user[current_password]',      with: 'password01')
+      fill_in('user[password]',              with: 'password02')
+      fill_in('user[password_confirmation]', with: 'password02')
+      click_button('Update')
+      expect(page).to have_text('メールアドレスを入力してください')
+    end
+
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（メールアドレスフォーマットエラー）" do
+      fill_in('user[email]',                 with: '?user0*.ex@mple.c$m.')
+      fill_in('user[current_password]',      with: 'password01')
+      fill_in('user[password]',              with: 'password02')
+      fill_in('user[password_confirmation]', with: 'password02')
+      click_button('Update')
+      expect(page).to have_text('メールアドレスは不正な値です')
+    end
+
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（現在のパスワード未入力）" do
+      fill_in('user[email]',                 with: 'user01@example.com')
+      fill_in('user[current_password]',      with: '')
+      fill_in('user[password]',              with: 'password02')
+      fill_in('user[password_confirmation]', with: 'password02')
+      click_button('Update')
+      expect(page).to have_text('パスワードを入力してください')
+    end
+
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（現在のパスワード不一致）" do
       fill_in('user[email]',                 with: 'user01@example.com')
       fill_in('user[current_password]',      with: 'password10')
       fill_in('user[password]',              with: 'password02')
       fill_in('user[password_confirmation]', with: 'password02')
       click_button('Update')
       expect(page).to have_text('現在のパスワードは不正な値です')
+    end
+
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（現在のパスワード不一致）" do
+      fill_in('user[email]',                 with: 'user01@example.com')
+      fill_in('user[current_password]',      with: 'password01')
+      fill_in('user[password]',              with: 'password02')
+      fill_in('user[password_confirmation]', with: 'password20')
+      click_button('Update')
+      expect(page).to have_text('確認用パスワードとパスワードの入力が一致しません')
     end
   end
 end
