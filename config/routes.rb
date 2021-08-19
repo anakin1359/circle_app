@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords'
+    sessions:      'admins/sessions'
   }
 
   devise_for :users, controllers: {
@@ -12,7 +11,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   
-  resources :admins, only: [:index, :show, :destroy]
   resources :users, only: [:index, :show, :destroy]
+  resources :admins, only: [:index, :show, :destroy]
   get  '/contact', to: 'static_pages#contact'
 end
