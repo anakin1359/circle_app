@@ -1,13 +1,17 @@
 class AdminsController < ApplicationController
-  def index
-  end
+  before_action :authenticate_admin!
 
-  def new
+  def index
+    @admins = User.paginate(page: params[:page])
   end
 
   def show
+    @admin = Admin.find(params[:id])
   end
 
-  def edit
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:notice] = "ユーザを削除しました"
+    redirect_to admins_path
   end
 end
