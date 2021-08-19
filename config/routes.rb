@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'static_pages#home'
-  get  '/contact', to: 'static_pages#contact'
 
+  devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords'
+  }
+
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations',
+  }
+  
+  resources :admins, only: [:index, :show, :destroy]
   resources :users, only: [:index, :show, :destroy]
-  # get  '/signup',  to: 'users#new'
-  # post '/signup',  to: 'users#create'
+  get  '/contact', to: 'static_pages#contact'
 end
