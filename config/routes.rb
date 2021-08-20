@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'events/index'
-  get 'events/new'
-  get 'events/edit'
   root 'static_pages#home'
+  get  '/contact', to: 'static_pages#contact'
 
   devise_for :admins, controllers: {
     sessions:      'admins/sessions'
@@ -13,8 +11,8 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations',
   }
-  
+
   resources :users, only: [:index, :show, :destroy]
   resources :admins, only: [:index, :show, :destroy]
-  get  '/contact', to: 'static_pages#contact'
+  resources :events
 end

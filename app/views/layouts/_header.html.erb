@@ -18,7 +18,7 @@
         <% else %>
           <% if admin_signed_in? %>
             <li><%= link_to "ユーザ一覧", '#' %></li>
-            <li><%= link_to "イベント登録", '#' %></li>
+            <li><%= link_to "イベント登録", new_event_path %></li>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
           <% else %>
             <li><%= link_to "新規登録", new_user_registration_path %></li>
