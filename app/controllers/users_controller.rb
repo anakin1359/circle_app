@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   private
 
+  # ここで指定した項目のみweb経由での変更を許可にする
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
