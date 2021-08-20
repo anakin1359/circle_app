@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
-  belongs_to :admin
+  belongs_to :user
   default_scope -> { order(created_at: :desc) }
-  validates :admin_id, presence: true
+  validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 50 }
 end

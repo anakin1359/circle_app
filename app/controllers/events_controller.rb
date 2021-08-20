@@ -7,10 +7,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_admin.event.build(event_params)
+    @event = current_user.event.build(event_params)
     if @event.save
       flash[:notice] = "イベント登録が完了しました"
-      # redirect_to admin_path
+      # redirect_to current_user
       redirect_to root_path
     else
       render new_event_path

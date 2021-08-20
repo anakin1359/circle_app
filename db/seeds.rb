@@ -1,11 +1,3 @@
-# # 管理者ユーザ（Adminモデル）
-# Admin.create!(
-#   name: "admin",
-#   email: "admin@example.jp",
-#   password:              "password0#",
-#   password_confirmation: "password0#"
-# )
-
 # # 管理者ユーザ（Userモデル）
 # User.create!(
 #   name: "admin",
@@ -35,24 +27,26 @@
 #     password_confirmation: password)
 # end
 
-# テストイベント
+# # テストイベント
 10.times do |n|
   title  = "test-event-0#{n+1}"
-  admin_id = 1
   introduction = "test-event-0#{n+1}_introduction"
   entry_count = n * 5
   event_price = n * 50
   start_date = Date.today.beginning_of_week
   end_date = Date.today.end_of_week
+  address = "東京都千代田区神田駿河台1-1"
   event_icon = nil
+  user_id = 1
   Event.create!(
     title:  title,
-    admin_id: admin_id,
     introduction: introduction,
     entry_count: entry_count,
     event_price: event_price,
     start_date: start_date,
     end_date: end_date,
-    event_icon: event_icon
+    address: address,
+    event_icon: event_icon,
+    user_id: user_id
   )
 end
