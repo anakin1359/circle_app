@@ -7,6 +7,7 @@ class AdminsController < ApplicationController
 
   def show
     @admin = Admin.find(params[:id])
+    @events = @admin.events.paginate(page: params[:page])
   end
 
   def destroy

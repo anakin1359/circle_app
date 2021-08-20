@@ -1,0 +1,8 @@
+<li id="event-<%= event.id %>">
+  <%= link_to gravatar_for(event.admin, size: 50), event.admin %>
+  <span class="admin"><%= link_to event.admin.name, event.admin %></span>
+  <span class="title"><%= event.title %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(event.created_at) %> ago.
+  </span>
+</li>

@@ -55,4 +55,4 @@
     end_date: end_date,
     event_icon: event_icon
   )
-  end
+end
