@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'events/index'
+  get 'events/new'
+  get 'events/edit'
   root 'static_pages#home'
 
   devise_for :admins, controllers: {
