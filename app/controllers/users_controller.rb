@@ -25,6 +25,5 @@ class UsersController < ApplicationController
 
   def admin_user
     redirect_to root_path unless current_user.admin?
-    flash[:alert] = "[エラー] 権限がありません"
   end
 end
