@@ -1,4 +1,6 @@
 <% provide(:title, @user.name) %>
+<h1>登録済みルーム一覧</h1>
+
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -9,3 +11,32 @@
     </section>
   </aside>
 </div>
+<table>
+  <thead>
+    <tr>
+      <th>イベント名</th>
+      <th>イベント概要</th>
+      <th>開始日時</th>
+      <th>終了日時</th>
+      <th>参加者の人数（上限値）</th>
+      <th>料金</th>
+      <th>開催場所</th>
+      <th>作成日</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |f| %>
+      <tr>
+        <td><%= f.title %></td>
+        <td><%= f.introduction %></td>
+        <td><%= f.start_date %></td>
+        <td><%= f.end_date %></td>
+        <td><%= f.entry_count %> 人</td>
+        <td><%= f.event_price %> 円</td>
+        <td><%= f.address %></td>
+        <td><%= f.created_at.to_s(:datetime_jp) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
