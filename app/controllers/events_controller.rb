@@ -44,6 +44,13 @@ class EventsController < ApplicationController
     end
   end
 
+  # イベント削除機能
+  def destroy
+    Event.find(params[:id]).destroy
+    flash[:notice] = "イベントを削除しました"
+    redirect_to events_path
+  end
+
   private
 
   # ここで指定した項目のみweb経由での変更を許可にする
