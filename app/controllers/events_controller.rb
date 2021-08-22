@@ -53,17 +53,17 @@ class EventsController < ApplicationController
 
   private
 
-  # ここで指定した項目のみweb経由での変更を許可にする
-  def event_params
-    params.require(:event).permit(
-      :title,
-      :introduction,
-      :start_date,
-      :end_date,
-      :entry_count,
-      :event_price,
-      :address,
-      :event_icon
-    )
-  end
+    # ここで指定した項目のみweb経由での変更を許可にする
+    def event_params
+      params.require(:event).permit(
+        :title,
+        :introduction,
+        :start_date,
+        :end_date,
+        :entry_count,
+        :event_price,
+        :address,
+        :event_icon
+      )
+    end
 end
