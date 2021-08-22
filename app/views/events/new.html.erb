@@ -5,11 +5,12 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@event) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
+
       <%= f.label :title, "イベント名" %>
       <%= f.text_field :title, class: 'form-control' %>
 
       <%= f.label :introduction, "イベント概要" %>
-      <%= f.text_field :introduction, class: 'form-control' %>
+      <%= f.text_area :introduction, class: 'form-control' %>
 
       <%= f.label :start_date, "開始日" %>
       <%= f.date_field :start_date, class: 'form-control' %>
@@ -30,6 +31,7 @@
       <%= f.file_field :event_icon, class: 'form-control' %>
       
       <%= f.submit "イベントを登録する", class: "btn btn-primary" %>
+
     <% end %>
   </div>
 </div>

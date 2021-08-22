@@ -1,23 +1,39 @@
 class EventsController < ApplicationController
+
+  # 登録済みイベント全件表示（ユーザも見れる）
   def index
+    @events = Event.all
   end
 
+  # イベント新規登録
   def new
     @event = Event.new
   end
 
+  # イベント登録機能（失敗したら現ページに残留）
   def create
     @event = current_user.events.build(event_params)
     if @event.save
       flash[:notice] = "イベント登録が完了しました"
       redirect_to user_path(current_user.id)
-      # redirect_to root_path
     else
       render new_event_path
     end
   end
 
+  # ユーザ毎の登録済みイベント一覧表示（ユーザは見れない）
+  def show
+    # binding.pry
+  end
+
+  # イベントIDを取得して更新対象のイベントを特定
   def edit
+    @event = Event.find(params[:id])
+  end
+
+  # イベント更新機能
+  def update
+    @event = Event.find
   end
 
   private
