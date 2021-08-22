@@ -31,9 +31,17 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  # イベント更新機能
+  # イベント更新機能（失敗したら現ページに残留）
   def update
-    @event = Event.find
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      flash[:notice] = "イベントを更新しました"
+      redirect_to events_path
+    else
+      flash[:alert] = "イベントの更新に失敗しました"
+      render edit_event_path(@event.id)
+      # render edit
+    end
   end
 
   private
