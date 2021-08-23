@@ -5,15 +5,28 @@ class EntriesController < ApplicationController
     @entries =  Entry.all.includes(:event)
   end
 
-  # 予約画面表示
+  # イベント予約機能
   def new
+    @event = Event.find(params[:event_id])
+    @entry = Entry.new
   end
 
-  # 予約機能
+  # イベント予約実行機能
   def create
   end
 
   # 自身の予約履歴参照機能
   def show
+    
   end
+
+  private
+
+    # ここで指定した項目のみweb経由での変更を許可にする
+    def entry_params
+      params.require(:entry).permit(
+        :entry_count,
+        :entry_price
+      )
+    end
 end

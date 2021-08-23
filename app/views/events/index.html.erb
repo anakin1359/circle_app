@@ -25,10 +25,16 @@
         <td><%= f.entry_count %> 人</td>
         <td><%= f.event_price %> 円</td>
         <td><%= f.address %></td>
-        <td><%= link_to "予約", '#' %></td>
+        <td><%= link_to "詳細", user_events_show(f.id) %></td>
         <td><%= link_to "更新", edit_event_path(f.id) %></td>
         <td><%= link_to "削除", f, method: :delete, data: { confirm: "イベントを削除します。よろしいですか?" } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<div>
+  <li><%= link_to "イベント一覧ページにいく", events_path %></li>
+  <li><%= link_to "全ての予約履歴を確認する（管理者のみ）", entries_index_path %></li>
+  <li><%= link_to "自身の予約履歴を確認する", '#' %></li>
+</div>

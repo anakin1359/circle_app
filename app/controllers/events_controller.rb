@@ -21,8 +21,9 @@ class EventsController < ApplicationController
     end
   end
 
-  # ユーザ毎の登録済みイベント一覧表示（ユーザは見れない）
+  # ユーザ毎の登録済みイベント詳細画面
   def show
+    @event = Event.find(params[:id])
     # binding.pry
   end
 
