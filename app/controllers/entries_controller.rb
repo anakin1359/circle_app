@@ -7,17 +7,19 @@ class EntriesController < ApplicationController
 
   # イベント予約機能
   def new
+    # @user = User.find(params[:event_id])
     @event = Event.find(params[:event_id])
     @entry = Entry.new
   end
 
   # イベント予約実行機能
   def create
+
   end
 
   # 自身の予約履歴参照機能
   def show
-    
+
   end
 
   private
