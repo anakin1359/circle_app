@@ -11,8 +11,7 @@
       <th>参加者の人数（上限値）</th>
       <th>料金</th>
       <th>開催場所</th>
-      <th>イベント更新</th>
-      <th>イベント削除</th>
+      <th colspan="3">操作</th>
     </tr>
   </thead>
 
@@ -26,6 +25,7 @@
         <td><%= f.entry_count %> 人</td>
         <td><%= f.event_price %> 円</td>
         <td><%= f.address %></td>
+        <td><%= link_to "予約", '#' %></td>
         <td><%= link_to "更新", edit_event_path(f.id) %></td>
         <td><%= link_to "削除", f, method: :delete, data: { confirm: "イベントを削除します。よろしいですか?" } %></td>
       </tr>

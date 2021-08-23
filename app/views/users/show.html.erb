@@ -11,4 +11,8 @@
     </section>
   </aside>
 </div>
-<%= link_to "イベント一覧ページにいく", events_path %>
+<div>
+  <li><%= link_to "イベント一覧ページにいく", events_path %></li>
+  <li><%= link_to "全ての予約履歴を確認する（管理者のみ）", entries_index_path %></li>
+  <li><%= link_to "自身の予約履歴を確認する", '#' %></li>
+</div>

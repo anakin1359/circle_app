@@ -1,4 +1,4 @@
-# # 管理者ユーザ（Userモデル）
+# # 管理者ユーザ
 # User.create!(
 #   name: "admin",
 #   email: "admin@example.com",
