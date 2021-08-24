@@ -13,6 +13,5 @@
 </div>
 <div>
   <li><%= link_to "登録済みのイベント一覧ページにいく", events_path %></li>
-  <li><%= link_to "全ての予約履歴を確認する（管理者のみ）", entries_index_path %></li>
-  <li><%= link_to "自身の予約履歴を確認する", '#' %></li>
+  <li><%= link_to "自身の予約履歴を確認する", user_entries_path(current_user.id) %></li>
 </div>

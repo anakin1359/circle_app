@@ -53,11 +53,13 @@
 
 # テストエントリー
 10.times do |n|
-  entry_count = 2
-  entry_price = n * 250
-  user_id = 10
+  entry_name = "test-entry-0#{n+1}"
+  entry_count = n + 1
+  entry_price = n * 200
+  user_id = 2
   event_id = 1
   Entry.create!(
+    entry_name: entry_name,
     entry_count: entry_count,
     entry_price: entry_price,
     user_id: user_id,

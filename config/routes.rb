@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   get  '/contact',       to: 'static_pages#contact'
-  get  '/entries/index', to: 'entries#index'
+  # get  '/entries/index', to: 'entries#index'
 
   devise_for :users, controllers: {
     sessions:      'users/sessions',
@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [:index, :show, :destroy] do
-    resources :events, only: [:show]
+    resources :events,  only: [:show]
+    resources :entries, only: [:index]
   end
 
   resources :events do
