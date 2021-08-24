@@ -1,0 +1,26 @@
+<% provide(:title, "予約履歴（全件）") %>
+<h1>予約履歴（全件）</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>イベント名</th>
+      <th>イベント概要</th>
+      <th>開催場所</th>
+      <th>イベント詳細</th>
+      <th>予約確定日時</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entries.each do |f| %>
+      <tr>
+        <td><%= f.event.title %></td>
+        <td><%= f.event.introduction %></td>
+        <td><%= f.event.address %></td>
+        <td><%= link_to "詳細", '#' %></td>
+        <td><%= f.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
