@@ -45,16 +45,5 @@
       <%= f.submit "イベントを予約する", class: "btn btn-primary", data: { confirm: "このイベントを予約します。よろしいですか?"} %>
 
     <% end %>
-    
-    <script>
-      $('#entry_count').change(function() {
-        var price = $('#event_price').val();
-        var count = $('#entry_count').val();
-        var price_i = parseInt(price);
-        var count_i = parseInt(count);
-        var result = price_i * count_i
-        $('#entry_price').val(result)
-      });
-    </script>
   </div>
 </div>
