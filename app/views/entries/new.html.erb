@@ -40,7 +40,7 @@
       <%= f.number_field :entry_count, class: 'form-control', id: "entry_count" %>
 
       <%= f.label :entry_price, "料金（円）" %>
-      <%= f.number_field :entry_price, class: 'form-control', id: "entry_price" %>
+      <%= f.number_field :entry_price, :readonly => true, class: 'form-control', id: "entry_price" %>
 
       <%= f.submit "イベントを予約する", class: "btn btn-primary", data: { confirm: "このイベントを予約します。よろしいですか?"} %>
 

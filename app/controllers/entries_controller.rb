@@ -20,7 +20,7 @@ class EntriesController < ApplicationController
       flash[:notice] = "イベント予約が完了しました"
       redirect_to user_entries_path(current_user.id)
     else
-      render event_entry_path(@event.id)
+      render :new
     end
   end
 
