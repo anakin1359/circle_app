@@ -13,7 +13,7 @@ class EntriesController < ApplicationController
 
   # イベント予約実行機能
   def create
-
+    
   end
 
   # 自身の予約履歴参照機能
