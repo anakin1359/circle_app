@@ -23,8 +23,8 @@
       <%= f.label :entry_count, "参加者数の上限（人）" %>
       <%= f.number_field :entry_count, :readonly => true, class: 'form-control' %>
 
-      <%= f.label :event_price, "料金（円）" %>
-      <%= f.number_field :event_price, :readonly => true, class: 'form-control' %>
+      <%= f.label :event_price, "1人あたりの料金（円）" %>
+      <%= f.number_field :event_price, :readonly => true, class: 'form-control', id: "event_price" %>
 
     <% end %>
     <div>
@@ -34,13 +34,27 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :entry_name, "お名前" %>
-      <%= f.text_field :entry_name, class: 'form-control' %>
+      <%= f.text_field :entry_name, class: 'form-control'%>
 
       <%= f.label :entry_count, "参加者数（人）" %>
-      <%= f.number_field :entry_count, class: 'form-control' %>
+      <%= f.number_field :entry_count, class: 'form-control', id: "entry_count" %>
+
+      <%= f.label :entry_price, "料金（円）" %>
+      <%= f.number_field :entry_price, class: 'form-control', id: "entry_price" %>
 
       <%= f.submit "イベントを予約する", class: "btn btn-primary", data: { confirm: "このイベントを予約します。よろしいですか?"} %>
 
     <% end %>
+    
+    <script>
+      $('#entry_count').change(function() {
+        var price = $('#event_price').val();
+        var count = $('#entry_count').val();
+        var price_i = parseInt(price);
+        var count_i = parseInt(count);
+        var result = price_i * count_i
+        $('#entry_price').val(result)
+      });
+    </script>
   </div>
 </div>

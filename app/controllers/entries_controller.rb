@@ -7,7 +7,6 @@ class EntriesController < ApplicationController
 
   # イベント予約機能
   def new
-    # @user = User.find(params[:event_id])
     @event = Event.find(params[:event_id])
     @entry = Entry.new
   end
@@ -27,6 +26,7 @@ class EntriesController < ApplicationController
     # ここで指定した項目のみweb経由での変更を許可にする
     def entry_params
       params.require(:entry).permit(
+        :entry_name,
         :entry_count,
         :entry_price
       )
