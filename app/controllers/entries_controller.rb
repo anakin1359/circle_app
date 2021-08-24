@@ -13,12 +13,12 @@ class EntriesController < ApplicationController
 
   # イベント予約実行機能
   def create
-    @entry = current_user.entry.build(entry_params)
-    @event = Event.find(params:[:event_id])
+    @entry = current_user.entries.build(entry_params)
+    @event = Event.find(params[:event_id])
     @entry.event_id = @event.id
     if @entry.save
       flash[:notice] = "イベント予約が完了しました"
-      redirect_to user_path(current_user.id)
+      redirect_to user_entries_path(current_user.id)
     else
       render event_entry_path(@event.id)
     end
