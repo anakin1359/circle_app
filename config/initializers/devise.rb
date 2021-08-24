@@ -1,5 +1,5 @@
 Devise.setup do |config|
-  # config.secret_key = '161fc32c5ebdfa26127e1fd05bd51dcd68e2859b6a695520ce4b82334ded01f081a81acdef80091e9e05f1040d2359da80e4b43144a9fb4590d19ee71d9a5ce0'
+  config.secret_key = '161fc32c5ebdfa26127e1fd05bd51dcd68e2859b6a695520ce4b82334ded01f081a81acdef80091e9e05f1040d2359da80e4b43144a9fb4590d19ee71d9a5ce0'
 
   # ==> Controller configuration
   # config.parent_controller = 'DeviseController'
@@ -69,7 +69,7 @@ Devise.setup do |config|
   # config.encryptor = :sha512
 
   # ==> Scopes configuration
-  # config.scoped_views = false
+  config.scoped_views = true
   # config.default_scope = :user
   # config.sign_out_all_scopes = true
 
