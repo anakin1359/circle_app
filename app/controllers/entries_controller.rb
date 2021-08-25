@@ -26,7 +26,8 @@ class EntriesController < ApplicationController
 
   # 自身の予約履歴参照機能
   def show
-
+    @entry = Entry.find(params[:id])
+    @event = Event.find(@entry.event_id)
   end
 
   private

@@ -7,8 +7,8 @@
       <th>イベント名</th>
       <th>イベント概要</th>
       <th>開催場所</th>
-      <th>イベント詳細</th>
       <th>予約確定日時</th>
+      <th>イベント詳細</th>
     </tr>
   </thead>
 
@@ -18,8 +18,8 @@
         <td><%= f.event.title %></td>
         <td><%= f.event.introduction %></td>
         <td><%= f.event.address %></td>
-        <td><%= link_to "詳細", '#' %></td>
         <td><%= f.updated_at %></td>
+        <td><%= link_to "予約内容の詳細", user_entry_path(current_user.id, f.id) %></td>
       </tr>
     <% end %>
   </tbody>

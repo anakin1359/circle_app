@@ -1,2 +1,46 @@
-<h1>Entries#show</h1>
-<p>Find me in app/views/entries/show.html.erb</p>
+<% provide(:title, "予約内容") %>
+<h1>予約内容</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <table>
+      <thead>
+        <tr>
+          <th>項目</th>
+          <td>予約内容</td>
+        </tr>
+        <tr>
+          <th>イベントタイトル</th>
+          <td><%= @event.title %></td>
+        </tr>
+        <tr>
+          <th>イベント概要</th>
+          <td><%= @event.introduction %></td>
+        </tr>
+        <tr>
+          <th>開始日時</th>
+          <td><%= @event.start_date %></td>
+        </tr>
+        <tr>
+          <th>終了日時</th>
+          <td><%= @event.end_date %></td>
+        </tr>
+        <tr>
+          <th>開催場所</th>
+          <td><%= @event.address %></td>
+        </tr>
+        <tr>
+          <th>参加者の人数</th>
+          <td><%= @entry.entry_count %> 人</td>
+        </tr>
+        <tr>
+          <th>参加料金</th>
+          <td><%= @entry.entry_price %> 円</td>
+        </tr>
+      </thead>
+    </table>
+    <div>
+      <%= link_to "このイベントを辞退する", '#' %>
+    </div>
+  </div>
+</div>

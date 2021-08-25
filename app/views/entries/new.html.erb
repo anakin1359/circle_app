@@ -28,7 +28,7 @@
 
     <% end %>
     <div>
-      <h2>参加する方の「お名前」と「人数」を入力いただき、予約ボタンを押してください</h2>
+      <h2>参加する方の「お名前」と「人数」を入力いただき、イベント参加ボタンを押してください</h2>
     </div>
     <%= form_for(@entry, url: "/events/#{@event.id}/entries/") do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
@@ -42,7 +42,7 @@
       <%= f.label :entry_price, "料金（円）" %>
       <%= f.number_field :entry_price, :readonly => true, class: 'form-control', id: "entry_price" %>
 
-      <%= f.submit "イベントを予約する", class: "btn btn-primary", data: { confirm: "このイベントを予約します。よろしいですか?"} %>
+      <%= f.submit "イベントに参加する", class: "btn btn-primary", data: { confirm: "このイベントに参加します。よろしいですか?"} %>
 
     <% end %>
   </div>

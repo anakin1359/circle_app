@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :destroy] do
     resources :events,  only: [:show]
-    resources :entries, only: [:index]
+    resources :entries, only: [:index, :show]
   end
 
   resources :events do
-    resources :entries, only: [:new, :create, :show]
+    resources :entries, only: [:new, :create]
   end
 end
