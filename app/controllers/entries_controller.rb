@@ -30,6 +30,13 @@ class EntriesController < ApplicationController
     @event = Event.find(@entry.event_id)
   end
 
+  # 予約キャンセル機能
+  def destroy
+    Entry.find(params[:id]).destroy
+    flash[:notice] = "予約を取り消しました"
+    redirect_to user_entries_path(current_user.id)
+  end
+
   private
 
     # ここで指定した項目のみweb経由での変更を許可にする

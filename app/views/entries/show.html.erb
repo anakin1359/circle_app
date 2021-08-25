@@ -40,7 +40,7 @@
       </thead>
     </table>
     <div>
-      <%= link_to "このイベントを辞退する", '#' %>
+      <%= link_to "このイベントをキャンセルする", user_entry_path(current_user.id, @entry.id), method: :delete, data: { confirm: "イベントをキャンセルします。よろしいですか?" } %>
     </div>
   </div>
 </div>
