@@ -6,13 +6,14 @@
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
+        <%= image_tag("#{@user.user_icon}") %>
         <%= @user.name %>
       </h1>
     </section>
   </aside>
 </div>
 <div>
-  <li><%= link_to "ユーザ情報を変更する", events_path %></li>
+  <li><%= link_to "ユーザ情報を変更する", edit_user_registration_path %></li>
   <li><%= link_to "登録済みのイベント一覧ページにいく", events_path %></li>
   <li><%= link_to "自身の予約履歴を確認する", user_entries_path(current_user.id) %></li>
   <li><%= link_to "【管理者】ユーザ一覧ページにいく", users_path %></li>

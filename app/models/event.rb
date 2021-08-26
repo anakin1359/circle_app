@@ -19,8 +19,8 @@ class Event < ApplicationRecord
 
   # アップロードされた画像サイズを検査
   def event_icon_size
-    if event_icon.size > 5.megabytes
-      errors.add(:event_icon, "should be less than 5MB")
+    if event_icon.size > 1.megabytes
+      errors.add(:event_icon, "should be less than 1MB")
     end
   end
 end
