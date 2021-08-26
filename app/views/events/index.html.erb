@@ -20,7 +20,7 @@
         <td><%= f.introduction %></td>
         <td><%= f.event_price %> 円</td>
         <td><%= link_to "詳細", user_event_path(current_user.id, f.id) %></td>
-        <td><%= link_to "更新", edit_event_path(f.id) %></td>
+        <td><%= link_to "編集", edit_event_path(f.id) %></td>
         <td><%= link_to "削除", f, method: :delete, data: { confirm: "イベントを削除します。よろしいですか?" } %></td>
       </tr>
     <% end %>
