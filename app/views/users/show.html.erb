@@ -12,6 +12,9 @@
   </aside>
 </div>
 <div>
+  <li><%= link_to "ユーザ情報を変更する", events_path %></li>
   <li><%= link_to "登録済みのイベント一覧ページにいく", events_path %></li>
   <li><%= link_to "自身の予約履歴を確認する", user_entries_path(current_user.id) %></li>
+  <li><%= link_to "【管理者】ユーザ一覧ページにいく", users_path %></li>
+  <li><%= link_to "【管理者】イベントを登録する", new_event_path %></li>
 </div>
