@@ -13,4 +13,14 @@ class Event < ApplicationRecord
     validates :address, length: { maximum: 137 }
     validates :user_id
   end
+  validate :event_icon_size
+
+  private
+
+  # アップロードされた画像サイズを検査
+  def event_icon_size
+    if event_icon.size > 5.megabytes
+      errors.add(:event_icon, "should be less than 5MB")
+    end
+  end
 end
