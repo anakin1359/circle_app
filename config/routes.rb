@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   get  '/contact',       to: 'static_pages#contact'
-  # get  '/entries/index', to: 'entries#index'
 
   devise_for :users, controllers: {
     sessions:      'users/sessions',
