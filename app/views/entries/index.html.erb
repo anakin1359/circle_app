@@ -4,6 +4,7 @@
 <table>
   <thead>
     <tr>
+      <th>イベントイメージ</th>
       <th>イベント名</th>
       <th>イベント概要</th>
       <th>開催場所</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @entries.each do |f| %>
       <tr>
+        <td><%= link_to image_tag("#{f.event.event_icon}"), user_entry_path(current_user.id, f.id) %></td>
         <td><%= f.event.title %></td>
         <td><%= f.event.introduction %></td>
         <td><%= f.event.address %></td>
