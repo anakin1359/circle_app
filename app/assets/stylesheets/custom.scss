@@ -15,8 +15,13 @@
 
 /* all */
 
+html.body {
+  height: 100%;
+}
+
 body {
   padding-top: 30px;
+  position: relative;
 }
 
 .container {
@@ -40,8 +45,8 @@ textarea {
 
 .jumbotron {
   padding-top: 20px;
-  padding-bottom: 10px;
-  position: relative;
+  margin-bottom: 0px;
+  // position: relative;
 }
 
 .background_img {
@@ -85,7 +90,7 @@ p {
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 10px;
   font-weight: bold;
   &:hover {
     color: white;
@@ -95,11 +100,20 @@ p {
 
 /* home */
 
+.infomartion {
+  padding-bottom: 2px;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  margin-bottom: 20px;
+}
+
 .account-list {
   display: flex;
   align-items: stretch;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .account1 {
@@ -129,7 +143,6 @@ p {
   padding-top: 30px;
   position: absolute;
   bottom: 0;
-
   ul {
     float: right;
     list-style: none;
