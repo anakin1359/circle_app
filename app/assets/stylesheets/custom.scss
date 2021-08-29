@@ -13,7 +13,7 @@
 //   box-sizing:         border-box;
 // }
 
-/* universal */
+/* all */
 
 body {
   padding-top: 30px;
@@ -51,9 +51,9 @@ textarea {
 
 // /* typography */
 
-// h1, h2, h3, h4, h5, h6 {
-//   line-height: 1;
-// }
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
 
 // h1 {
 //   font-size: 3em;
@@ -62,19 +62,19 @@ textarea {
 //   text-align: center;
 // }
 
-// h2 {
-//   font-size: 1.2em;
-//   letter-spacing: -1px;
-//   margin-bottom: 30px;
-//   text-align: center;
-//   font-weight: normal;
-//   color: $gray-light;
-// }
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
 
-// p {
-//   font-size: 1.1em;
-//   line-height: 1.7em;
-// }
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
 
 /* header */
 
@@ -93,7 +93,34 @@ textarea {
   }
 }
 
-// /* footer */
+/* home */
+
+.account-list {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.account1 {
+  padding: 0.5em 1em;
+  margin: 10px;
+  color: #5989cf;
+  background: #c6e4ff;
+  border-bottom: solid 6px #aac5de;
+  border-radius: 9px;
+}
+
+.account2 {
+  padding: 0.5em 1em;
+  margin: 10px;
+  color: #c78bc9;
+  background: #f1d5ed;
+  border-bottom: solid 6px #deaada;
+  border-radius: 9px;
+}
+
+/* footer */
 
 .footer {
   width: 100%;
