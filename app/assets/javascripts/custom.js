@@ -1,5 +1,5 @@
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('#entry_count').change(function() {
   
     var price = $('#event_price').val();

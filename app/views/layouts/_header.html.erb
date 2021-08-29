@@ -5,14 +5,15 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "ユーザ一覧", users_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %><b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><%= link_to "マイページ", user_path(current_user.id) %></li>
               <li><%= link_to "ユーザ編集画面", edit_user_registration_path %></li>
-              <li><%= link_to "イベント登録", new_event_path %></li>
-              <li><%= link_to "登録済みイベント一覧", '#' %></li>
+              <li><%= link_to "イベント予約履歴一覧", user_entries_path(current_user.id) %></li>
+              <li><%= link_to "【管理者】ユーザ一覧", users_path %></li>
+              <li><%= link_to "【管理者】イベント登録", new_event_path %></li>
+              <li><%= link_to "【管理者】登録済みイベント一覧", events_path %></li>
               <li class="divider"></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>

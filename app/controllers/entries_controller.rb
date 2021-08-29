@@ -1,8 +1,8 @@
 class EntriesController < ApplicationController
 
-  # 予約履歴全件表示（管理者のみ見れる）
+  # 予約履歴全件表示
   def index
-    @entries =  Entry.all.includes(:event)
+    @entries =  Entry.where(user_id: current_user.id)
   end
 
   # イベント予約機能
@@ -13,12 +13,28 @@ class EntriesController < ApplicationController
 
   # イベント予約実行機能
   def create
-
+    @entry = current_user.entries.build(entry_params)
+    @event = Event.find(params[:event_id])
+    @entry.event_id = @event.id
+    if @entry.save
+      flash[:notice] = "イベント予約が完了しました"
+      redirect_to user_entries_path(current_user.id)
+    else
+      render :new
+    end
   end
 
   # 自身の予約履歴参照機能
   def show
+    @entry = Entry.find(params[:id])
+    @event = Event.find(@entry.event_id)
+  end
 
+  # 予約キャンセル機能
+  def destroy
+    Entry.find(params[:id]).destroy
+    flash[:notice] = "予約を取り消しました"
+    redirect_to user_entries_path(current_user.id)
   end
 
   private

@@ -3,6 +3,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <%= image_tag("#{@event.event_icon}") %>
     <%= form_with model: @event do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
