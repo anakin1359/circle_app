@@ -4,9 +4,11 @@
     <%= render 'layouts/head' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <%= render 'layouts/notifications' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div class="wrapper">
+      <%= render 'layouts/header' %>
+      <%= render 'layouts/notifications' %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
