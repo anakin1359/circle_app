@@ -24,11 +24,11 @@ html, body {
 }
 
 body {
-  padding-top: 30px;
+  padding-top: 5px;
 }
 
 .container {
-  width: 900px;
+  width: 90%;
 }
 
 section {
@@ -47,7 +47,7 @@ textarea {
 // }
 
 .jumbotron {
-  padding-top: 20px;
+  padding-top: 0px;
   margin-bottom: 0px;
 }
 
@@ -75,7 +75,6 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $gray-light;
 }
 
 p {
