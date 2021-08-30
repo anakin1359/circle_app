@@ -16,8 +16,7 @@
 }
 
 .field {
-  padding-bottom: 20px;
-  padding-left: 200px;
+  padding: 10px 0px 20px 200px;
   .label-item {
     color: rgb(167, 158, 158);
   }
@@ -52,7 +51,11 @@ input[type="file"] {
     margin-top: 15px;
     border: 0 none;
     font-weight: 500;
-    text-transform: uppercase;
   }
 }
 
+.user-icon {
+  border-radius: 50%;
+  border: 1px solid #bbb;
+  margin-left: 50px;
+}
