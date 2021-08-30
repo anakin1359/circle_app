@@ -12,43 +12,44 @@
   h2 {
     padding-bottom: 20px;
     text-align: center;
-    .field {
-      padding: 10px 0px 20px 200px;
-      .label-item {
-        color: rgb(167, 158, 158);
-      }
+  }
 
-      input[type="text"] {
-        width: 300px;
-        height: 25px;
-      }
-      
-      input[type="email"] {
-        width: 300px;
-        height: 25px;
-      }
-      
-      input[type="password"] {
-        width: 300px;
-        height: 25px;
-      }
-      
-      input[type="file"] {
-        width: 300px;
-        height: 40px;
-        font-size: 12px;
-      }
-      
-      .actions {
-        text-align: center;
-        padding-bottom: 20px;
-        .btn {
-          padding: 5px 20px;
-          margin-top: 15px;
-          border: 0 none;
-          font-weight: 500;
-        }
-      }
+  .field {
+    padding: 10px 0px 20px 200px;
+    .label-item {
+      color: rgb(167, 158, 158);
+    }
+
+    input[type="text"] {
+      width: 300px;
+      height: 25px;
+    }
+    
+    input[type="email"] {
+      width: 300px;
+      height: 25px;
+    }
+    
+    input[type="password"] {
+      width: 300px;
+      height: 25px;
+    }
+    
+    input[type="file"] {
+      width: 300px;
+      height: 40px;
+      font-size: 12px;
+    }
+  }
+
+  .actions {
+    text-align: center;
+    padding-bottom: 20px;
+    .btn {
+      padding: 5px 20px;
+      margin-top: 15px;
+      border: 0 none;
+      font-weight: 500;
     }
   }
 }

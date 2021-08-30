@@ -1,5 +1,17 @@
 ja:
   activerecord:
+    attributes:
+      event:
+        title: "タイトル"
+        introduction: "イベント概要"
+        entry_count: "参加者の人数（上限値）"
+        event_price: "料金"
+        start_date: "開始日時"
+        end_date: "終了日時"
+        address: "開催場所"
+        event_icon: "イベントアイコン"
+    models:
+      event: "イベント"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
