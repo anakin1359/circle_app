@@ -41,7 +41,6 @@ class EventsController < ApplicationController
     else
       flash[:alert] = "イベントの更新に失敗しました"
       render edit_event_path(@event.id)
-      # render edit
     end
   end
 
