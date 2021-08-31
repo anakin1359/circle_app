@@ -1,28 +1,32 @@
 <% provide(:title, "予約履歴") %>
-<h1>予約履歴</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>イベントイメージ</th>
-      <th>イベント名</th>
-      <th>イベント概要</th>
-      <th>開催場所</th>
-      <th>予約確定日時</th>
-      <th>イベント詳細</th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="entries-index">
+      <h2>予約履歴</h2>
+      <%= paginate @entries %>
+      <table>
+        <thead>
+          <tr>
+            <th>開催日時</th>
+            <th>イベント名</th>
+            <th>イベント概要</th>
+            <th>イベント詳細</th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @entries.each do |f| %>
-      <tr>
-        <td><%= link_to image_tag("#{f.event.event_icon}"), user_entry_path(current_user.id, f.id) %></td>
-        <td><%= f.event.title %></td>
-        <td><%= f.event.introduction %></td>
-        <td><%= f.event.address %></td>
-        <td><%= f.updated_at %></td>
-        <td><%= link_to "予約内容の詳細", user_entry_path(current_user.id, f.id) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @entries.each do |f| %>
+            <tr>
+              <td><%= f.event.start_date.to_s(:datetime_jp) %> ~ </td>
+              <td><%= f.event.title %></td>
+              <td><%= f.event.introduction %></td>
+              <td><%= link_to "予約内容の詳細", user_entry_path(current_user.id, f.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @entries %>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ class EntriesController < ApplicationController
 
   # 予約履歴全件表示
   def index
-    @entries =  Entry.where(user_id: current_user.id)
+    @entries = Entry.page(params[:page]).where(user_id: current_user.id).per(10)
   end
 
   # イベント予約機能
