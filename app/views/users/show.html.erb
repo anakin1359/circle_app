@@ -34,8 +34,13 @@
             <% end %>
           </li>
           <li>
+            <%= link_to events_path do %>
+              <i class="fa fa-th-list fa-la" aria-hidden="true"></i> 登録済みイベント一覧を参照する
+            <% end %>
+          </li>
+          <li>
             <%= link_to users_path do %>
-              <i class="fa fa-users fa-la" aria-hidden="true"></i>ユーザ一覧を参照する
+              <i class="fa fa-users fa-la" aria-hidden="true"></i> ユーザ一覧を参照する
             <% end %>
           </li>
         </div>

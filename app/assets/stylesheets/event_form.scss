@@ -14,7 +14,7 @@
     text-align: center;
   }
 
-  .evemt-field {
+  .event-field {
     padding: 10px 0px 20px 100px;
     .label-item {
       color: rgb(167, 158, 158);
@@ -47,7 +47,7 @@
       font-size: 12px;
     }
   }
-  
+
   .actions {
     text-align: center;
     padding-bottom: 70px;
@@ -58,4 +58,10 @@
       font-weight: 500;
     }
   }
+}
+
+.event-icon {
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  margin-left: 145px;
 }
