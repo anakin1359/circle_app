@@ -1,0 +1,68 @@
+@import "font-awesome";
+
+/* Event */
+
+.event-section {
+  padding: 30px 60px;
+  margin: 20px 70px;
+  background: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+  .event-image {
+    margin: 30px 10px 25px 10px;
+    text-align: center;
+  }
+
+  table.event-more {
+    border-collapse: separate;
+    border-spacing: 0px 15px;
+    font-size: 12px;
+
+    th {
+      width: 150px;
+      padding: 10px;
+      border: solid 1px #ccc;
+      border-radius: 5px;
+      background-color: #636060;
+      vertical-align: middle;
+      text-align: left;
+      overflow: visible;
+      position: relative;
+      color: #FFF;
+      font-weight: normal;
+    }
+    
+    th:after {
+      left: 100%;
+      top: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(136, 183, 213, 0);
+      border-left-color: #636060;
+      border-width: 10px;
+      margin-top: -10px;
+    }
+
+    td {
+      width: 600px;
+      padding: 10px 10px 10px 30px;
+      background: #fafafa;
+      border: 1px #ccc;
+      border-radius: 5px;
+    }
+  }
+
+  .actions {
+    text-align: center;
+    // padding-bottom: 20px;
+    .btn {
+      margin-top: 15px;
+      border: 0 none;
+      font-weight: 500;
+    }
+  }
+}
