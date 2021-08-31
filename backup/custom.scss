@@ -1,7 +1,9 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
 
 // /* mixins, variables, etc. */
+
+// $gray-medium-light: #eaeaea;
 
 // /* debug */
 
@@ -11,33 +13,19 @@
 //   box-sizing:         border-box;
 // }
 
-/* all */
+// /* universal */
 
-html, body {
-  height: 100%;
-}
+// body {
+//   padding-top: 100px;
+// }
 
-.wrapper{
-  width: 100%;
-  position: relative;
-  min-height: 100%;
-}
+// section {
+//   overflow: auto;
+// }
 
-body {
-  padding-top: 5px;
-}
-
-.container {
-  width: 90%;
-}
-
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
+// textarea {
+//   resize: vertical;
+// }
 
 // .center {
 //   text-align: center;
@@ -46,21 +34,11 @@ textarea {
 //   }
 // }
 
-.jumbotron {
-  padding-top: 0px;
-  margin-bottom: 0px;
-}
-
-.background_img {
-  width: 100%;
-  height: 60%;
-}
-
 // /* typography */
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
+// h1, h2, h3, h4, h5, h6 {
+//   line-height: 1;
+// }
 
 // h1 {
 //   font-size: 3em;
@@ -69,94 +47,62 @@ h1, h2, h3, h4, h5, h6 {
 //   text-align: center;
 // }
 
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-}
+// h2 {
+//   font-size: 1.2em;
+//   letter-spacing: -1px;
+//   margin-bottom: 30px;
+//   text-align: center;
+//   font-weight: normal;
+//   color: $gray-light;
+// }
 
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
+// p {
+//   font-size: 1.1em;
+//   line-height: 1.7em;
+// }
 
-/* header */
+// /* header */
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.5em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 10px;
-  font-weight: bold;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
-}
+// #logo {
+//   float: left;
+//   margin-right: 10px;
+//   font-size: 1.5em;
+//   color: white;
+//   text-transform: uppercase;
+//   letter-spacing: -1px;
+//   padding-top: 9px;
+//   font-weight: bold;
+//   &:hover {
+//     color: white;
+//     text-decoration: none;
+//   }
+// }
 
-/* home */
+// /* footer */
 
-.infomartion {
-  padding-bottom: 2px;
-  color: #5d627b;
-  background: white;
-  border-top: solid 5px #5d627b;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-  margin-bottom: 20px;
-}
-
-.account-list {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.account1 {
-  padding: 0.5em 1em;
-  margin: 10px;
-  color: #5989cf;
-  background: #c6e4ff;
-  border-bottom: solid 6px #aac5de;
-  border-radius: 9px;
-}
-
-.account2 {
-  padding: 0.5em 1em;
-  margin: 10px;
-  color: #c78bc9;
-  background: #f1d5ed;
-  border-bottom: solid 6px #deaada;
-  border-radius: 9px;
-}
-
-/* footer */
-
-.footer {
-  width: 100%;
-  background-color: #262525;
-  color: #9d9d9d;
-  padding-top: 30px;
-  position: absolute;
-  bottom: 0;
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 25px;
-      margin-bottom: 15px;
-      a {
-        color: inherit;
-      }
-    }
-  }
-}
+// footer {
+//   margin-top: 45px;
+//   padding-top: 5px;
+//   border-top: 1px solid $gray-medium-light;
+//   color: $gray-light;
+//   a {
+//     color: $gray;
+//     &:hover {
+//       color: $gray-darker;
+//     }
+//   }
+//   small {
+//     float: left;
+//   }
+//   ul {
+//     float: right;
+//     list-style: none;
+//     li {
+//       float: left;
+//       margin-left: 15px;
+//     }
+//   }
+// }
 
 // /* miscellaneous */
 
@@ -218,26 +164,13 @@ p {
 //   height: auto !important;
 // }
 
-/* error messagess */
-
-#error_explanation {
-  h2 {
-    background-color: #f2dede;
-    border-color: #ebccd1;
-    color: #a94442;
-    font-size: 16px;
-    padding-top: 20px;
-  }
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-  .alert {
-    margin-bottom: 20px;
-    padding: 10px;
-    text-align: center;
-  }
-}
+// #error_explanation {
+//   color: red;
+//   ul {
+//     color: red;
+//     margin: 0 0 30px 0;
+//   }
+// }
 
 // .field_with_errors {
 //   @extend .has-error;
@@ -269,6 +202,18 @@ p {
 // #session_remember_me {
 //   width: auto;
 //   margin-left: 0;
+// }
+
+// /* Users index */
+
+// .users {
+//   list-style: none;
+//   margin: 0;
+//   li {
+//     overflow: auto;
+//     padding: 10px 0;
+//     border-bottom: 1px solid $gray-lighter;
+//   }
 // }
 
 // /* events */
