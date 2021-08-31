@@ -15,5 +15,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      TZ: Asia/Tokyo
     stdin_open: true
     tty: true

@@ -30,6 +30,7 @@ ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 RUN bundle install
 ADD . $APP_ROOT
+ENV TZ Asia/Tokyo
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
