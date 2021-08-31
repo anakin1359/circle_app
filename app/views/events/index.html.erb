@@ -4,6 +4,7 @@
   <div class="col-md-6 col-md-offset-3">
     <div class="events-index">
       <h2>登録済みイベント一覧</h2>
+      <%= paginate @events %>
       <table>
         <thead>
           <tr class="index-title">
@@ -28,6 +29,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @events %>
     </div>
   </div>
 </div>

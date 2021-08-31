@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   # 登録済みイベント全件表示（ユーザも見れる）
   def index
-    @events = Event.all
+    @events = Event.page(params[:page]).per(10)
   end
 
   # イベント新規登録
