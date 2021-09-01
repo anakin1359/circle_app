@@ -1,49 +1,75 @@
 <% provide(:title, "イベント予約") %>
-<h1>イベント予約</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with model: @event do |f| %>
+    <div class="entry-check-form">
+      <h2>予約内容</h2>
+      <%= form_with model: @event do |f| %>
 
-      <%= f.label :title, "イベント名" %>
-      <%= f.text_field :title, :readonly => true, class: 'form-control' %>
+        <div class="entry-field">
+          <%= f.label :title, "イベント名", class: "label-item" %>
+          <%= f.text_field :title, :readonly => true, class: 'form-control' %>
+        </div>
 
-      <%= f.label :introduction, "イベント概要" %>
-      <%= f.text_area :introduction, :readonly => true, class: 'form-control' %>
+        <div class="entry-field">
+          <%= f.label :introduction, "イベント概要", class: "label-item" %>
+          <%= f.text_area :introduction, type: "textarea", :readonly => true, class: 'form-control' %>
+        </div>
 
-      <%= f.label :address, "開催場所" %>
-      <%= f.text_field :address, :readonly => true, class: 'form-control' %>
+        <div class="entry-field">
+          <%= f.label :address, "開催場所", class: "label-item" %>
+          <%= f.text_field :address, :readonly => true, class: 'form-control' %>
+        </div>
 
-      <%= f.label :start_date, "開始日" %>
-      <%= f.date_field :start_date, :readonly => true, class: 'form-control' %>
+        <div class="entry-field">
+          <%= f.label :start_date, "開始日", class: "label-item" %>
+          <%= f.date_field :start_date, :readonly => true, class: 'form-control' %>
+        </div>
 
-      <%= f.label :end_date, "終了日" %>
-      <%= f.date_field :end_date, :readonly => true, class: 'form-control' %>
+        <div class="entry-field">
+          <%= f.label :end_date, "終了日", class: "label-item" %>
+          <%= f.date_field :end_date, :readonly => true, class: 'form-control' %>
+        </div>
 
-      <%= f.label :entry_count, "参加者数の上限（人）" %>
-      <%= f.number_field :entry_count, :readonly => true, class: 'form-control' %>
+        <div class="entry-field">
+          <%= f.label :entry_count, "募集人数", class: "label-item" %>
+          <%= f.number_field :entry_count, :readonly => true, class: 'form-control' %>
+        </div>
 
-      <%= f.label :event_price, "1人あたりの料金（円）" %>
-      <%= f.number_field :event_price, :readonly => true, class: 'form-control', id: "event_price" %>
+        <div class="entry-field">
+          <%= f.label :event_price, "1人あたりの料金（円）", class: "label-item" %>
+          <%= f.number_field :event_price, :readonly => true, class: 'form-control', id: "event_price" %>
+        </div>
 
-    <% end %>
-    <div>
-      <h2>参加する方の「お名前」と「人数」を入力いただき、イベント参加ボタンを押してください</h2>
+      <% end %>
     </div>
-    <%= form_for(@entry, url: "/events/#{@event.id}/entries/") do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+    <div class="entry-form">
+      <h2>イベント予約</h2>
+      <p>参加する方の「お名前」と「人数」を入力いただき、「イベントに参加する」ボタンを押してください。</p>
+      <p>※複数名人で参加される場合、「お名前」には代表者の氏名をご入力ください</p>
+      <%= form_for(@entry, url: "/events/#{@event.id}/entries/") do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :entry_name, "お名前" %>
-      <%= f.text_field :entry_name, class: 'form-control'%>
+        <div class="entry-field">
+          <%= f.label :entry_name, "お名前", class: "label-item" %>
+          <%= f.text_field :entry_name, class: 'form-control'%>
+        </div>
 
-      <%= f.label :entry_count, "参加者数（人）" %>
-      <%= f.number_field :entry_count, class: 'form-control', id: "entry_count" %>
+        <div class="entry-field">
+          <%= f.label :entry_count, "参加者数（人）", class: "label-item" %>
+          <%= f.number_field :entry_count, class: 'form-control', id: "entry_count" %>
+        </div>
 
-      <%= f.label :entry_price, "料金（円）" %>
-      <%= f.number_field :entry_price, :readonly => true, class: 'form-control', id: "entry_price" %>
+        <div class="entry-field">
+          <%= f.label :entry_price, "料金（円）", class: "label-item" %>
+          <%= f.number_field :entry_price, :readonly => true, class: 'form-control', id: "entry_price" %>
+        </div>
 
-      <%= f.submit "イベントに参加する", class: "btn btn-primary", data: { confirm: "このイベントに参加します。よろしいですか?"} %>
+        <div class="actions">
+          <%= f.submit "イベントに参加する", class: "btn btn-primary", data: { confirm: "このイベントに参加します。よろしいですか?"} %>
+        </div>
 
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
