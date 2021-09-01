@@ -158,8 +158,10 @@ GEM
     ffi (1.15.3)
     font-awesome-rails (4.7.0.7)
       railties (>= 3.2, < 7)
+    geocoder (1.6.7)
     globalid (0.5.2)
       activesupport (>= 5.0)
+    gmaps4rails (2.1.2)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
@@ -385,6 +387,8 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font-awesome-rails
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
