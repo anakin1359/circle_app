@@ -3,3 +3,58 @@
 
 /* Entry index */
 
+.entries-index {
+  padding: 30px 60px;
+  margin: 20px 70px 120px 70px;
+  background: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+  font-size: 12px;
+  h2 {
+    padding-bottom: 20px;
+  }
+
+  table tr {
+    border-bottom: solid 1px #eee;
+    cursor: pointer;
+  }
+
+  table tr:nth-child(odd){
+    background-color: #fafafa;
+  }
+  
+  table tr:hover {
+    background-color: #d4f0fd;
+  }
+  
+  table th {
+    background-color: #d4f0fd;
+    text-align: center;
+  }
+
+  table th.entry-item {
+    width: 10%;
+    padding: 15px 0px;
+  }
+
+  table th.entry-operation {
+    width: 10%;
+    padding: 15px 0px;
+  }
+  
+  table td {
+    padding: 15px 0px;
+  }
+
+  table td.entry-item {
+    padding: 10px;
+  }
+
+  table td.entry-operation {
+    text-align: center;
+  }
+
+  .btn {
+    font-size: 10px;
+  }
+}

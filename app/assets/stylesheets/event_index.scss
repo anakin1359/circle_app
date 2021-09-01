@@ -1,6 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome";
 
 /* Event index */
 
@@ -14,6 +13,7 @@
   h2 {
     padding-bottom: 20px;
   }
+  
   table tr {
     border-bottom: solid 1px #eee;
     cursor: pointer;
