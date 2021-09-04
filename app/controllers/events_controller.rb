@@ -63,7 +63,9 @@ class EventsController < ApplicationController
         :entry_count,
         :event_price,
         :address,
-        :event_icon
+        :event_icon,
+        :latitude,
+        :longitude
       )
     end
 end

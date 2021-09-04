@@ -14,6 +14,8 @@ class Event < ApplicationRecord
     validates :user_id
   end
   validate :event_icon_size
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   private
 
