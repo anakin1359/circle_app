@@ -20,22 +20,22 @@ $(document).on('turbolinks:load', function() {
 var gMap = null;
 var gMarkerCenter = null;
 
-function initMap() {
-    // 登録されている住所の緯度/経度を利用して位置を特定
-    var e = document.getElementById('map');
-    var lat = e.getAttribute('data-lat-id');
-    var lng = e.getAttribute('data-lng-id');
-    var myLatLng = new google.maps.LatLng(lat, lng)
-    var mapOptions = {
-        center: myLatLng,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+$(document).on('turbolinks:load', function initMap() {
+  // 登録されている住所の緯度/経度を利用して位置を特定
+  var e = document.getElementById('map');
+  var lat = e.getAttribute('data-lat-id');
+  var lng = e.getAttribute('data-lng-id');
+  var myLatLng = new google.maps.LatLng(lat, lng)
+  var mapOptions = {
+      center: myLatLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
 
-    // Google.map表示
-    gMap = new google.maps.Map(document.getElementById("map"), mapOptions);
-    gMarkerCenter = drawMarkerCenterInit(myLatLng);
-}
+  // Google.map表示
+  gMap = new google.maps.Map(document.getElementById("map"), mapOptions);
+  gMarkerCenter = drawMarkerCenterInit(myLatLng);
+});
 
 
 // ########## Google.map Markerを生成 ##########
