@@ -26,6 +26,17 @@
             <td><%= @event.address %></td>
           </tr>
           <tr>
+            <th>Googleマップ</th>
+            <td>
+              <div id="map" data-lat-id="<%= @event.latitude %>" data-lng-id="<%= @event.longitude %>"></div>
+              <p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@event.latitude},#{@event.longitude}&iwloc=J", target: "_blank" %></p>
+            </td>
+          </tr>
+          <tr>
+            <th>申込者のお名前</th>
+            <td><%= @entry.entry_name %></td>
+          </tr>
+          <tr>
             <th>参加者の人数</th>
             <td><%= @entry.entry_count %> 人</td>
           </tr>
