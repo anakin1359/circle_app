@@ -1,5 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "simple_calendar";
+
+.simple-calendar {
+  margin: 100px 70px;
+}
 
 // /* mixins, variables, etc. */
 
