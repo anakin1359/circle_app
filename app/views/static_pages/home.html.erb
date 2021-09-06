@@ -1,12 +1,23 @@
 <% provide(:title, "Home") %>
-<div class="center jumbotron">
-  <h1>Welcome to the xxxxx</h1>
-
-  <h2>
-    This is the home page for the
-    <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
+<div class="jumbotron">
+  <%= image_tag 'static_background.jpg', class: "background_img" %>
+  <div class="infomartion">
+    <h2>ゲストアカウントはこちら</h2>
+    <div class="account-list">
+      <div class="account1">
+        <p>ゲストアカウント1（一般）</p>
+        <ul>
+          <li>MAIL: anakin1359@gmail.com</li>
+          <li>PW: password01</li>
+        </ul>
+      </div>
+      <div class="account2">
+        <p>ゲストアカウント2（管理）</p>
+        <ul>
+          <li>MAIL: admin@example.com</li>
+          <li>PW: password0#</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>

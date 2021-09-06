@@ -1,7 +1,7 @@
 <li>
-  <%= gravatar_for user, size: 50 %>
+  <%= image_tag("#{user.user_icon}", class: "users-icon", size: 50) %>
   <%= link_to user.name, user %>
   <% if current_user.admin? %>
-    | <%= link_to "delete", user, method: :delete, data: { confirm: "ユーザを削除します。よろしいですか?" } %>
+    | <%= link_to "delete", user, method: :delete, data: { confirm: "選択したユーザを削除します。よろしいですか?" } %>
   <% end %>
 </li>

@@ -1,11 +1,30 @@
 ja:
   activerecord:
+    attributes:
+      event:
+        title: "タイトル"
+        introduction: "イベント概要"
+        entry_count: "参加者の人数（上限値）"
+        event_price: "料金"
+        start_date: "開始日時"
+        end_date: "終了日時"
+        address: "開催場所"
+        event_icon: "イベントアイコン"
+    models:
+      event: "イベント"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
   date:
     abbr_day_names:
     - 日

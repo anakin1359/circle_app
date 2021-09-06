@@ -1,38 +1,61 @@
 <% provide(:title, "イベント編集") %>
-<h1>イベント編集</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= image_tag("#{@event.event_icon}") %>
-    <%= form_with model: @event do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+    <div class="event-form">
+      <h2>イベント編集</h2>
+      <%= form_for(@event) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :title, "イベント名" %>
-      <%= f.text_field :title, class: 'form-control' %>
+        <div class="event-field">
+          <%= image_tag("#{@event.event_icon}", class: "event-icon") %>
+        </div>
 
-      <%= f.label :introduction, "イベント概要" %>
-      <%= f.text_area :introduction, class: 'form-control' %>
+        <div class="event-field">
+          <%= f.label :title, "イベント名" %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
 
-      <%= f.label :start_date, "開始日" %>
-      <%= f.date_field :start_date, class: 'form-control' %>
+        <div class="event-field">
+          <%= f.label :introduction, "イベント概要" %>
+          <%= f.text_area :introduction, type: "textarea", class: 'form-control' %>
+        </div>
 
-      <%= f.label :end_date, "終了日" %>
-      <%= f.date_field :end_date, class: 'form-control' %>
-      
-      <%= f.label :entry_count, "参加者の人数（上限値）" %>
-      <%= f.number_field :entry_count, class: 'form-control' %>
+        <div class="event-field">
+          <%= f.label :start_date, "開始日" %>
+          <%= f.datetime_field :start_date, class: 'form-control' %>
+        </div>
 
-      <%= f.label :event_price, "料金" %>
-      <%= f.number_field :event_price, class: 'form-control' %>
-      
-      <%= f.label :address, "開催場所" %>
-      <%= f.text_field :address, class: 'form-control' %>
-      
-      <%= f.label :event_icon, "イベントアイコン" %>
-      <%= f.file_field :event_icon, class: 'form-control' %>
+        <div class="event-field">
+          <%= f.label :end_date, "終了日" %>
+          <%= f.datetime_field :end_date, class: 'form-control' %>
+        </div>
 
-      <%= f.submit "イベントを変更する", class: "btn btn-primary" %>
+        <div class="event-field">
+          <%= f.label :entry_count, "募集人数" %>
+          <%= f.number_field :entry_count, class: 'form-control' %>
+        </div>
 
-    <% end %>
+        <div class="event-field">
+          <%= f.label :event_price, "料金" %>
+          <%= f.number_field :event_price, class: 'form-control' %>
+        </div>
+
+        <div class="event-field">
+          <%= f.label :address, "開催場所" %>
+          <%= f.text_field :address, class: 'form-control' %>
+        </div>
+
+        <div class="event-field">
+          <%= f.label :event_icon, "イベントアイコン" %>
+          <%= f.file_field :event_icon, class: 'form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "イベントを変更する", class: "btn btn-primary" %>
+        </div>
+
+      <% end %>
+    </div>
   </div>
 </div>

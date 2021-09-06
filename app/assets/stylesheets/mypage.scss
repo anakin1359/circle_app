@@ -1,0 +1,62 @@
+@import "font-awesome";
+
+/* Mypage */
+
+.mypage-form {
+  padding: 30px 60px;
+  margin: 20px 70px;
+  background: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+  h2 {
+    text-align: center;
+  }
+  .section-title {
+    margin-bottom: 10px;
+    position: relative;
+    margin: 40px 0px;
+    padding: 5px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+  }
+  .section-title span {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 16px;
+    background: #FFF;
+    color: black;
+    font-weight: bold;
+  }
+  .section-title .user-sections .admin-sections {
+    margin: 0; 
+    padding: 0;
+  }
+}
+
+.user-sections {
+  padding: 10px 5px;
+  li {
+    list-style: none;
+    padding: 20px;
+    margin: 10px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+  }
+}
+
+.admin-sections {
+  padding: 10px 5px;
+  li {
+    list-style: none;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    background-color: #fafafa;
+  }
+}

@@ -3,22 +3,13 @@ ja:
     attributes:
       user:
         current_password: "現在のパスワード"
+        name: "氏名"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
-      event:
-        title: "タイトル"
-        introduction: "概要"
-        titentry_countle: "参加者の人数（上限値）"
-        event_price: "料金"
-        start_date: "開始日時"
-        end_date: "終了日時"
-        address: "開催場所"
-        event_icon: "イベントアイコン"
     models:
       user: "ユーザ"
-      event: "イベント"
   devise:
     confirmations:
       new:

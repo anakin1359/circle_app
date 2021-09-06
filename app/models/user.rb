@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :name,  presence: true, length: { maximum: 50 }
   validates :email, length: { maximum: 255 }
   validate :user_icon_size
-  
+
   private
 
   # アップロードされた画像サイズを検査

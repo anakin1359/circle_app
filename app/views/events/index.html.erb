@@ -1,28 +1,35 @@
 <% provide(:title, "登録済みイベント一覧") %>
-<h1>登録済みイベント一覧</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>イベントイメージ</th>
-      <th>イベント名</th>
-      <th>イベント概要</th>
-      <th>料金</th>
-      <th colspan="3">操作</th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="events-index">
+      <h2>登録済みイベント一覧</h2>
+      <%= paginate @events %>
+      <table>
+        <thead>
+          <tr>
+            <th class="event-item">開催日時</th>
+            <th class="event-item">イベント名</th>
+            <th class="event-item">イベント概要</th>
+            <th class="event-operation">操作</th>
+            <th colspan="2" class="event-operation">操作（管理者）</th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @events.each do |f| %>
-      <tr>
-        <td><%= link_to image_tag("#{f.event_icon}"), user_event_path(current_user.id, f.id) %></td>
-        <td><%= f.title %></td>
-        <td><%= f.introduction %></td>
-        <td><%= f.event_price %> 円</td>
-        <td><%= link_to "詳細", user_event_path(current_user.id, f.id) %></td>
-        <td><%= link_to "編集", edit_event_path(f.id) %></td>
-        <td><%= link_to "削除", f, method: :delete, data: { confirm: "イベントを削除します。よろしいですか?" } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @events.each do |f| %>
+            <tr>
+              <td class="event-item"><%= f.start_date.to_s(:datetime_jp) %> ~ </td>
+              <td class="event-item"><%= f.title %></td>
+              <td class="event-item"><%= f.introduction %></td>
+              <td class="event-operation"><%= link_to "詳細", user_event_path(current_user.id, f.id), class: "btn btn-primary" %></td>
+              <td class="event-operation"><%= link_to "編集", edit_event_path(f.id), class: "btn btn-success" %></td>
+              <td class="event-operation"><%= link_to "削除", f, method: :delete, data: { confirm: "イベントを削除します。よろしいですか?" }, class: "btn btn-danger" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @events %>
+    </div>
+  </div>
+</div>
