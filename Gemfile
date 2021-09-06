@@ -31,7 +31,8 @@ gem 'mini_magick'
 gem 'font-awesome-rails'
 gem 'kaminari'
 gem 'geocoder'
-gem 'gmaps4rails'
+gem 'gon'
+gem 'simple_calendar'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -33,6 +33,13 @@
             <th>開催場所</th>
             <td><%= @event.address %></td>
           </tr>
+          <tr>
+            <th>Googleマップp</th>
+            <td>
+              <div id="map" data-lat-id="<%= @event.latitude %>" data-lng-id="<%= @event.longitude %>"></div>
+              <p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@event.latitude},#{@event.longitude}&iwloc=J", target: "_blank" %></p>
+            </td>
+          </tr>
         </thead>
       </table>
       <div class="actions">
@@ -41,4 +48,3 @@
     </div>
   </div>
 </div>
-
