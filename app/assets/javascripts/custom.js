@@ -32,7 +32,7 @@ $(document).on('turbolinks:load', function initMap() {
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
-  // Google.map表示
+  // map表示
   gMap = new google.maps.Map(document.getElementById("map"), mapOptions);
   gMarkerCenter = drawMarkerCenterInit(myLatLng);
 });
