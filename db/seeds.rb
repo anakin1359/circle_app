@@ -33,8 +33,8 @@
 #   introduction = "test-event-0#{n+1}_introduction"
 #   entry_count = n * 5
 #   event_price = n * 50
-#   start_date = Date.today.beginning_of_week
-#   end_date = Date.today.end_of_week
+#   start_time = Date.today.beginning_of_week
+#   end_time = Date.today.end_of_week
 #   address = "東京都千代田区神田駿河台1-1"
 #   event_icon = nil
 #   user_id = 1
@@ -44,8 +44,8 @@
 #     introduction: introduction,
 #     entry_count: entry_count,
 #     event_price: event_price,
-#     start_date: start_date,
-#     end_date: end_date,
+#     start_time: start_time,
+#     end_time: end_time,
 #     address: address,
 #     event_icon: event_icon,
 #     user_id: user_id,

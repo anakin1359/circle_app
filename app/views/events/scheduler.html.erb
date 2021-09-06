@@ -2,8 +2,8 @@
   <%= date.day %>
 
   <% events.each do |event| %>
-    <div>
-      <%= event.title %>
+    <div class="event-object">
+      <%= link_to "#{event.start_time.to_s(:time_jp)} ~ : #{event.title}", user_event_path(current_user.id, event.id) %>
     </div>
   <% end %>
 <% end %>

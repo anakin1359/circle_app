@@ -1,0 +1,43 @@
+/* Event scheduler */
+
+.simple-calendar {
+  .has-events {
+    // background: #69e93a;
+    // background: #d4f0fd;
+  }
+  padding: 30px 60px;
+  margin: 20px 70px;
+  background: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 0px 20px rgba(0,0,0,0.2);
+  font-size: 8px;
+  h2 {
+    padding-bottom: 20px;
+  }
+  
+  .calendar-heading {
+    font-size: 12px;
+    padding-bottom: 10px;
+  }
+
+  table th {
+    color: white;
+    background-color: royalblue;
+    width: 10%;
+  }
+
+  table td {
+    height: 100px;
+  }
+
+  table td:hover {
+    background-color: #aaf58e;
+  }
+
+  .event-object {
+    background-color: #d4f0fd;
+    border: 0px none;
+    margin: 3px 1px;
+    padding: 3px;
+  }
+}

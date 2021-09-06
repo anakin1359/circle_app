@@ -63,8 +63,8 @@ class EventsController < ApplicationController
       params.require(:event).permit(
         :title,
         :introduction,
-        :start_date,
-        :end_date,
+        :start_time,
+        :end_time,
         :entry_count,
         :event_price,
         :address,
