@@ -51,6 +51,11 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  # イベントカレンダー表示機能
+  def scheduler
+    @events = Event.all
+  end
+
   private
 
     # ここで指定した項目のみweb経由での変更を許可にする
@@ -58,8 +63,8 @@ class EventsController < ApplicationController
       params.require(:event).permit(
         :title,
         :introduction,
-        :start_date,
-        :end_date,
+        :start_time,
+        :end_time,
         :entry_count,
         :event_price,
         :address,

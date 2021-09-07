@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_01_194820) do
+ActiveRecord::Schema.define(version: 2021_09_06_193122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2021_09_01_194820) do
     t.text "introduction"
     t.integer "entry_count"
     t.integer "event_price"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.string "address"
     t.string "event_icon"
     t.bigint "entry_id"
