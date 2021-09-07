@@ -5,7 +5,7 @@
 
 .event-form {
   padding: 30px 60px;
-  margin: 20px 70px;
+  margin: 20px 70px 120px 70px;
   background: #FFF;
   border-radius: 3px;
   box-shadow: 0 0px 20px rgba(0,0,0,0.2);
@@ -50,7 +50,7 @@
 
   .actions {
     text-align: center;
-    padding-bottom: 70px;
+    padding-bottom: 20px;
     .btn {
       padding: 5px 20px;
       margin-top: 15px;
@@ -58,6 +58,10 @@
       font-weight: 500;
     }
   }
+
+  // .mypage-link {
+  //   padding-bottom: 20px;
+  // }
 }
 
 .event-icon {

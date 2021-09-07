@@ -51,6 +51,10 @@
           <%= f.submit "イベントを登録する", class: "btn btn-primary" %>
         </div>
 
+        <div class="mypage-link">
+          <%= link_to "マイページ", user_path(current_user.id) %>
+        </div>
+
       <% end %>
     </div>
   </div>

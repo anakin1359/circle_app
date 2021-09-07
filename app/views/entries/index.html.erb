@@ -27,6 +27,9 @@
         </tbody>
       </table>
       <%= paginate @entries %>
+      <div class="mypage-link">
+        <%= link_to "マイページ", user_path(current_user.id) %>
+      </div>
     </div>
   </div>
 </div>
