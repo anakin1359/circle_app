@@ -49,6 +49,9 @@
       <div class="actions">
         <%= link_to "このイベントをキャンセルする", user_entry_path(current_user.id, @entry.id), method: :delete, data: { confirm: "イベントをキャンセルします。よろしいですか?" }, class: "btn btn-danger" %>
       </div>
+      <div class="entry-index-link">
+        <%= link_to "予約一覧ページに戻る", user_entries_path(current_user.id) %>
+      </div>
     </div>
   </div>
 </div>

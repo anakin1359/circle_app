@@ -45,6 +45,9 @@
       <div class="actions">
         <%= link_to "このイベントに参加する", new_event_entry_path(@event.id), class: "btn btn-primary" %>
       </div>
+      <div class="event-index-link">
+        <%= link_to "イベント一覧ページに戻る", events_path %>
+      </div>
     </div>
   </div>
 </div>
