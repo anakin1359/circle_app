@@ -26,5 +26,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# backup file & directly
+/backup
+
 # Add dotenv-rails
 /.env
