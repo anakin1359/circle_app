@@ -1,0 +1,9 @@
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+
+  <% events.each do |event| %>
+    <div class="event-object">
+      <%= link_to "#{event.start_time.to_s(:time_jp)} ~ : #{event.title}", user_event_path(current_user.id, event.id) %>
+    </div>
+  <% end %>
+<% end %>

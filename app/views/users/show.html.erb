@@ -14,6 +14,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to events_scheduler_path do %>
+              <i class="fa fa-calendar fa-la" aria-hidden="true"></i> イベントカレンダーを見る
+            <% end %>
+          </li>
+          <li>
             <%= link_to user_entries_path(current_user.id) do %>
               <i class="fa fa-book fa-la" aria-hidden="true"></i> 予約履歴を確認する
             <% end %>

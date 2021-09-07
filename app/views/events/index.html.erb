@@ -19,7 +19,7 @@
         <tbody>
           <% @events.each do |f| %>
             <tr>
-              <td class="event-item"><%= f.start_date.to_s(:datetime_jp) %> ~ </td>
+              <td class="event-item"><%= f.start_time.to_s(:datetime_jp) %> ~ </td>
               <td class="event-item"><%= f.title %></td>
               <td class="event-item"><%= f.introduction %></td>
               <td class="event-operation"><%= link_to "詳細", user_event_path(current_user.id, f.id), class: "btn btn-primary" %></td>
@@ -30,6 +30,9 @@
         </tbody>
       </table>
       <%= paginate @events %>
+      <div class="mypage-link">
+        <%= link_to "マイページ", user_path(current_user.id) %>
+      </div>
     </div>
   </div>
 </div>

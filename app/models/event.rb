@@ -8,8 +8,8 @@ class Event < ApplicationRecord
     validates :introduction, length: { maximum: 300 }
     validates :entry_count
     validates :event_price
-    validates :start_date
-    validates :end_date
+    validates :start_time
+    validates :end_time
     validates :address, length: { maximum: 137 }
     validates :user_id
   end
