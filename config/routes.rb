@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   get  '/contact',          to: 'static_pages#contact'
+  # get  '/search',           to: 'events#search'
   get  '/events/scheduler', to: 'events#scheduler'
 
   devise_for :users, controllers: {
@@ -15,6 +16,9 @@ Rails.application.routes.draw do
   end
 
   resources :events do
+    collection do
+      get 'search'
+    end
     resources :entries, only: [:new, :create]
   end
 end
