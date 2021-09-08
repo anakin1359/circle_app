@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   end
 
   resources :events do
+    collection do
+      get 'search'
+    end
     resources :entries, only: [:new, :create]
   end
 end

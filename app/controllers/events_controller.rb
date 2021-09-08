@@ -1,8 +1,14 @@
 class EventsController < ApplicationController
+  before_action :set_q, only: [:index, :search]
 
   # 登録済みイベント全件表示（ユーザも見れる）
   def index
     @events = Event.page(params[:page]).per(10)
+  end
+
+  # イベント検索機能
+  def search
+    @results = @q.result
   end
 
   # イベント新規登録
@@ -57,6 +63,11 @@ class EventsController < ApplicationController
   end
 
   private
+
+    # Viewから送られてくる情報をransackを使用して加工 >> イベントレコード生成 >> @qに格納
+    def set_q
+      @q = Event.ransack(params[:q])
+    end
 
     # ここで指定した項目のみweb経由での変更を許可にする
     def event_params

@@ -34,7 +34,7 @@
             <td><%= @event.address %></td>
           </tr>
           <tr>
-            <th>Googleマップp</th>
+            <th>Googleマップ</th>
             <td>
               <div id="map" data-lat-id="<%= @event.latitude %>" data-lng-id="<%= @event.longitude %>"></div>
               <p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@event.latitude},#{@event.longitude}&iwloc=J", target: "_blank" %></p>
@@ -44,6 +44,9 @@
       </table>
       <div class="actions">
         <%= link_to "このイベントに参加する", new_event_entry_path(@event.id), class: "btn btn-primary" %>
+      </div>
+      <div class="event-index-link">
+        <%= link_to "イベント一覧ページに戻る", events_path %>
       </div>
     </div>
   </div>
