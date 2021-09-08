@@ -6,9 +6,17 @@
       <h2>登録済みイベント一覧</h2>
 
       <%= search_form_for @q, url: search_events_path do |f| %>
-        <%= f.label :address_cont, "開催地で検索" %>
-        <%= f.search_field :address_cont, type: "search" %>
-        <br>
+
+        <%= f.label :title_cont, "イベント名で検索する" %>
+        <%= f.search_field :title_cont, type: "search", class: "form-control" %>
+
+        <%= f.label :address_cont, "都道府県で検索する" %>
+        <%= f.search_field :address_cont, type: "search", class: "form-control" %>
+
+        <%= f.label :start_time_gteq, "開催日時で検索する" %>
+        <%= f.date_field :start_time_gteq, include_blank: true, class: "form-control" %>
+        <%= f.date_field :start_time_lteq_end_of_day, include_blank: true, class: "form-control" %>
+
         <div class="actions"><%= f.submit "検索" %></div>
       <% end %>
 
