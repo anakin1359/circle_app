@@ -7,11 +7,12 @@
 
       <%= search_form_for @q, url: search_events_path do |f| %>
         <section>
+          <p>検索フォーム</p>
           <div class="text-search-sections">
             <span>イベント名、または開催地を入力して検索する</span>
             <div class="search-field">
               <%= f.label :title_cont, "イベント名で検索", class: "label-item" %>
-              <%= f.search_field :title_cont, type: "search", class: "form-control", placeholder: "イベント名" %>
+              <%= f.search_field :title_cont, type: "search", class: "form-control", placeholder: "例: 練習試合" %>
             </div>
 
             <div class="search-field">
@@ -35,8 +36,7 @@
         </section>
       <% end %>
 
-      <%= paginate @events %>
-
+      <p>イベント一覧</p>
       <table>
         <thead>
           <tr>
