@@ -6,8 +6,8 @@
       <h2>登録済みイベント一覧</h2>
 
       <%= search_form_for @q, url: search_events_path do |f| %>
-        <%= f.label :address_cont, "イベント開催地" %>
-        <%= f.search_field :address_cont %>
+        <%= f.label :address_cont, "開催地で検索" %>
+        <%= f.search_field :address_cont, type: "search" %>
         <br>
         <div class="actions"><%= f.submit "検索" %></div>
       <% end %>
