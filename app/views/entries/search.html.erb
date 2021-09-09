@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <div class="events-index">
+    <div class="entries-index">
       <h2>予約履歴一覧（検索結果）</h2>
 
       <table>
@@ -26,6 +26,8 @@
           <% end %>
         </tbody>
       </table>
+
+      <%= link_to "予約履歴一覧画面に戻る", user_entries_path(current_user.id), class: "entries-index-url" %>
 
     </div>
   </div>

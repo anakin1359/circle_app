@@ -6,17 +6,37 @@
       <h2>予約履歴一覧</h2>
 
       <%= search_form_for @q, url: user_search_entries_path(current_user.id) do |f| %>
+        <section>
+          <p>検索フォーム</p>
+          <div class="text-search-sections">
+            <span>イベント名、または開催地を入力して検索する</span>
+            <div class="search-field">
+              <%= f.label :event_title_cont, "イベント名で検索", class: "label-item" %>
+              <%= f.search_field :event_title_cont, type: "search", class: "form-control", placeholder: "例: 練習試合" %>
+            </div>
 
-        <%= f.label :event_title_cont, "イベント名で検索する" %>
-        <%= f.search_field :event_title_cont, type: "search" %>
+            <div class="search-field">
+              <%= f.label :event_address_cont, "都道府県で検索", class: "label-item" %>
+              <%= f.search_field :event_address_cont, type: "search", class: "form-control", placeholder: "例: 大阪府" %>
+            </div>
+          </div>
 
-        <%= f.label :event_address_cont, "都道府県で検索する" %>
-        <%= f.search_field :event_address_cont, type: "search" %>
+          <div class="date-search-sections">
+            <span>開催日から検索する</span>
+            <div class="search-field">
+              <%= f.label :event_start_time_gteq, "開催日で検索", class: "label-item" %>
+              <%= f.date_field :event_start_time_gteq, include_blank: true, class: "form-control me-2" %>から
+              <%= f.date_field :event_start_time_lteq_end_of_day, include_blank: true, class: "form-control me-2" %>まで
+            </div>
+          </div>
 
-        <%= f.submit "Search", class: "btn btn-primary" %>
-
+          <div class="search-actions">
+            <%= f.submit "Search", class: "btn btn-primary" %>
+          </div>
+        </section>
       <% end %>
 
+      <p>予約履歴一覧</p>
       <table>
         <thead>
           <tr>
