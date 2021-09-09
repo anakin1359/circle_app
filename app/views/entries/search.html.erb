@@ -16,7 +16,7 @@
         </thead>
 
         <tbody>
-          <% @results.each do |f| %>
+          <% @result.each do |f| %>
             <tr>
               <td class="entry-item"><%= f.event.start_time.to_s(:datetime_jp) %> ~ </td>
               <td class="entry-item"><%= f.event.title %></td>
