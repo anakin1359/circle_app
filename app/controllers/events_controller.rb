@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     @events = Event.page(params[:page]).per(10)
   end
 
-  # イベント検索機能
+  # 登録済みイベント検索機能
   def search
     @results = @q.result
   end

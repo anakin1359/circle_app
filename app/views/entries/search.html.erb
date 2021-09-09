@@ -1,21 +1,9 @@
-<% provide(:title, "予約履歴一覧") %>
+<% provide(:title, "予約履歴一覧（検索結果）") %>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <div class="entries-index">
-      <h2>予約履歴一覧</h2>
-
-      <%= search_form_for @q, url: user_search_entries_path(current_user.id) do |f| %>
-
-        <%= f.label :event_title_cont, "イベント名で検索する" %>
-        <%= f.search_field :event_title_cont, type: "search" %>
-
-        <%= f.label :event_address_cont, "都道府県で検索する" %>
-        <%= f.search_field :event_address_cont, type: "search" %>
-
-        <%= f.submit "Search", class: "btn btn-primary" %>
-
-      <% end %>
+    <div class="events-index">
+      <h2>予約履歴一覧（検索結果）</h2>
 
       <table>
         <thead>
@@ -28,7 +16,7 @@
         </thead>
 
         <tbody>
-          <% @entries.each do |f| %>
+          <% @results.each do |f| %>
             <tr>
               <td class="entry-item"><%= f.event.start_time.to_s(:datetime_jp) %> ~ </td>
               <td class="entry-item"><%= f.event.title %></td>
@@ -38,10 +26,7 @@
           <% end %>
         </tbody>
       </table>
-      <%= paginate @entries %>
-      <div class="mypage-link">
-        <%= link_to "マイページ", user_path(current_user.id) %>
-      </div>
+
     </div>
   </div>
 </div>
