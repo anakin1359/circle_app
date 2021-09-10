@@ -14,6 +14,100 @@
     padding-bottom: 20px;
   }
 
+  p {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #9e9e9e8f;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .text-search-sections {
+    position: relative;
+    margin: 25px 0px 5px 0px;
+    padding: 5px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+
+    .search-field {
+      margin: 15px 10px 10px 20px;
+      display: flex;
+      .label-item {
+        width: 120px;
+        color: rgb(167, 158, 158);
+        padding-right: 10px;
+      }
+
+      input[type="search"] {
+        margin-left: 10px;
+        font-size: 12px;
+        width: 200px;
+        height: 25px;
+      }
+    }
+  }
+
+  .text-search-sections span {
+    position: absolute;
+    display: inline-block;
+    top: -8px;
+    left: 5px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 12px;
+    background: #FFF;
+    color: black;
+    font-weight: bold;
+  }
+
+  .date-search-sections {
+    position: relative;
+    margin: 20px 0px 10px 0px;
+    padding: 5px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+
+    .search-field {
+      margin: 15px 10px 10px 20px;
+      display: flex;
+      .label-item {
+        width: 120px;
+        color: rgb(167, 158, 158);
+        padding-right: 10px;
+      }
+
+      input[type="date"] {
+        margin-left: 10px;
+        font-size: 12px;
+        width: 200px;
+        height: 25px;
+      }
+    }
+  }
+
+  .date-search-sections span {
+    position: absolute;
+    display: inline-block;
+    top: -8px;
+    left: 5px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 12px;
+    background: #FFF;
+    color: black;
+    font-weight: bold;
+  }
+
+  .search-actions {
+    margin-bottom: 25px;
+    text-align: right;
+  }
+
+  table {
+    margin: 20px 0px 10px 0px;
+  }
+
   table tr {
     border-bottom: solid 1px #eee;
     cursor: pointer;

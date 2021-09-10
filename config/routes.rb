@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :destroy] do
     resources :events,  only: [:show]
     resources :entries, only: [:index, :show, :destroy]
+    get  '/search_entries', to: 'entries#search'
   end
 
   resources :events do
