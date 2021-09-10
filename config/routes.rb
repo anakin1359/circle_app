@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'posts/index'
   root 'static_pages#home'
   get  '/contact',          to: 'static_pages#contact'
   get  '/events/scheduler', to: 'events#scheduler'

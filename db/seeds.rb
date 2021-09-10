@@ -16,7 +16,7 @@
 #   admin: false
 # )
 
-# # サンプルユーザ
+# テストユーザ
 # 50.times do |n|
 # name  = Faker::Name.name
 # email = "test-user-0#{n+1}@example.com"
@@ -54,17 +54,31 @@
 # end
 
 # # テストエントリー
-# 10.times do |n|
-#   entry_name = "test-entry-0#{n+1}"
-#   entry_count = n + 1
-#   entry_price = n * 200
-#   user_id = 2
-#   event_id = 1
-#   Entry.create!(
-#     entry_name: entry_name,
-#     entry_count: entry_count,
-#     entry_price: entry_price,
-#     user_id: user_id,
-#     event_id: event_id
-#   )
-# end
+10.times do |n|
+  entry_name = "test-entry-0#{n+1}"
+  entry_count = n + 1
+  entry_price = n * 200
+  user_id = 2
+  event_id = 1
+  Entry.create!(
+    entry_name: entry_name,
+    entry_count: entry_count,
+    entry_price: entry_price,
+    user_id: user_id,
+    event_id: event_id
+  )
+end
+
+# テストコメント
+10.time do |n|
+  subject = "件名: テスト0#{n+1}"
+  comment = "内容: これはテストコメントです#{n+1}"
+  user_id = 2
+  entry_id = 38
+  Post.create!{
+    subject: subject,
+    comment: comment,
+    user_id: user_id,
+    entry_id: entry_id
+  }
+end
