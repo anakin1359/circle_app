@@ -33,6 +33,7 @@ gem 'kaminari'
 gem 'geocoder'
 gem 'gon'
 gem 'simple_calendar'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

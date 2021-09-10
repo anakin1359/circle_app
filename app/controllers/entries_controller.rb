@@ -1,8 +1,14 @@
 class EntriesController < ApplicationController
+  before_action :set_q, only: [:index, :search]
 
   # 予約履歴全件表示
   def index
     @entries = Entry.page(params[:page]).where(user_id: current_user.id).per(10)
+  end
+
+  # 予約済みイベント検索機能
+  def search
+    @result = @q.result
   end
 
   # イベント予約機能
@@ -38,6 +44,11 @@ class EntriesController < ApplicationController
   end
 
   private
+
+    # Viewから送られてくる情報をransackを使用して加工 >> イベントレコード生成 >> @qに格納
+    def set_q
+      @q = Entry.where(user_id: current_user.id).ransack(params[:q])
+    end
 
     # ここで指定した項目のみweb経由での変更を許可にする
     def entry_params

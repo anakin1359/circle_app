@@ -4,7 +4,39 @@
   <div class="col-md-6 col-md-offset-3">
     <div class="events-index">
       <h2>登録済みイベント一覧</h2>
-      <%= paginate @events %>
+
+      <%= search_form_for @q, url: search_events_path do |f| %>
+        <section>
+          <p>検索フォーム</p>
+          <div class="text-search-sections">
+            <span>イベント名、または開催地を入力して検索する</span>
+            <div class="search-field">
+              <%= f.label :title_cont, "イベント名で検索", class: "label-item" %>
+              <%= f.search_field :title_cont, type: "search", class: "form-control", placeholder: "例: 練習試合" %>
+            </div>
+
+            <div class="search-field">
+              <%= f.label :address_cont, "都道府県で検索", class: "label-item" %>
+              <%= f.search_field :address_cont, type: "search", class: "form-control", placeholder: "例: 大阪府" %>
+            </div>
+          </div>
+
+          <div class="date-search-sections">
+            <span>開催日から検索する</span>
+            <div class="search-field">
+              <%= f.label :start_time_gteq, "開催日で検索", class: "label-item" %>
+              <%= f.date_field :start_time_gteq, include_blank: true, class: "form-control me-2" %>から
+              <%= f.date_field :start_time_lteq_end_of_day, include_blank: true, class: "form-control me-2" %>まで
+            </div>
+          </div>
+
+          <div class="search-actions">
+            <%= f.submit "Search", class: "btn btn-primary" %>
+          </div>
+        </section>
+      <% end %>
+
+      <p>イベント一覧</p>
       <table>
         <thead>
           <tr>
@@ -29,10 +61,13 @@
           <% end %>
         </tbody>
       </table>
+
       <%= paginate @events %>
+
       <div class="mypage-link">
         <%= link_to "マイページ", user_path(current_user.id) %>
       </div>
+
     </div>
   </div>
 </div>
