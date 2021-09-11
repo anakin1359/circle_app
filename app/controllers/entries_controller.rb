@@ -34,6 +34,7 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @event = Event.find(@entry.event_id)
+    @posts = Post.page(params[:page]).where(user_id: current_user.id, entry_id: @entry.id).per(5)
   end
 
   # 予約キャンセル機能
