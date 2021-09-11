@@ -73,7 +73,7 @@
 10.times do |n|
   subject = "件名: テスト0#{n+1}"
   comment = "内容: これはテストコメントです0#{n+1}"
-  user_id = 2
+  user_id = 1
   entry_id = 38
   Post.create!(
     subject: subject,

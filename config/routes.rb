@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/index'
   root 'static_pages#home'
   get  '/contact',          to: 'static_pages#contact'
   get  '/events/scheduler', to: 'events#scheduler'
@@ -12,7 +11,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :destroy] do
     resources :events,  only: [:show]
-    resources :entries, only: [:index, :show, :destroy]
+    resources :entries, only: [:index, :show, :destroy] do
+      resources :posts, only: [:index]
+    end
     get  '/search_entries', to: 'entries#search'
   end
 
