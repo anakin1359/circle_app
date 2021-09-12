@@ -7,15 +7,23 @@ class PostsController < ApplicationController
   end
 
   # コメント投稿機能（失敗したら現ページへ残留）
+  # Postのcreateアクション
   def create
-    #
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      flash[:notice] = "コメントを投稿しました"
+      redirect_to user_entry_path(user_id: current_user.id, entrry_id: @entry.id)
+    else
+      @feed_items = []
+      redirect_to user_entry_path(user_id: current_user.id, entrry_id: @entry.id)
+    end
   end
 
   private
 
-  def post_params
-    params.require(:post).permit(
-      :subject,
-      :comment
-    )
+    def post_params
+      params.require(:post).permit(
+        :subject, :comment
+      )
+    end
 end

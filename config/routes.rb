@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :destroy] do
     resources :events,  only: [:show]
     resources :entries, only: [:index, :show, :destroy] do
-      resources :posts, only: [:index]
+      resources :posts, only: [:index, :create]
     end
     get  '/search_entries', to: 'entries#search'
   end

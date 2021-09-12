@@ -34,7 +34,12 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @event = Event.find(@entry.event_id)
+
+    # Postモデルのindexアクション
     @posts = Post.page(params[:page]).where(user_id: current_user.id, entry_id: @entry.id).per(5)
+
+    # コメント投稿を行うための下準備
+    @post = Post.new
   end
 
   # 予約キャンセル機能
@@ -54,9 +59,7 @@ class EntriesController < ApplicationController
     # ここで指定した項目のみweb経由での変更を許可にする
     def entry_params
       params.require(:entry).permit(
-        :entry_name,
-        :entry_count,
-        :entry_price
+        :entry_name, :entry_count, :entry_price
       )
     end
 end
