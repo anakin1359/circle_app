@@ -82,6 +82,9 @@
               <tr class="user-field">
                 <td><%= image_tag("#{f.user.user_icon}", class: "users-icon", size: 50) %><%= f.user.name %></td>
               </tr>
+              <tr class="created-field">
+                <td class="post-comment"><%= f.created_at.to_s(:datetime_jp) %></td>
+              </tr>
               <tr class="subject-field">
                 <td><%= f.subject %></td>
               </tr>
