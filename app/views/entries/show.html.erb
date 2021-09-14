@@ -52,44 +52,47 @@
       <div class="entry-index-link">
         <%= link_to "予約一覧ページに戻る", user_entries_path(current_user.id) %>
       </div>
+    </div>
 
-      <div>
-        <h1>Posts#index</h1>
-        <p>Find me in app/views/posts/index.html.erb</p>
+    <div class="post-section">
+      <div class="post-form">
+        <h2>連絡事項</h2>
+        <p>以下フォームよりご投稿ください</p>
         <%= form_for(@post, url: "/users/#{current_user.id}/entries/#{@entry.id}/posts" ) do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
 
-          <div>
-            <%= f.text_field :subject, placeholder: "件名:" %>
-          </div>
-          <div>
-            <%= f.text_area :comment, placeholder: "内容" %>
+          <div class="post-field">
+            <%= f.text_field :subject, placeholder: "件名:", class: 'form-control' %>
           </div>
 
-          <%= f.submit "投稿する", class: "btn btn-primary" %>
+          <div class="post-field">
+            <%= f.text_area :comment, placeholder: "内容", class: 'form-control' %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "投稿する", class: "btn btn-primary" %>
+          </div>
         <% end %>
       </div>
-      <div>
-        <table>
+      <div class="post-index">
+        <p>投稿履歴</p>
+        <table class="post-contents">
           <thead>
-            <tr>
-              <th>件名</th>
-              <th>投稿内容</th>
-            </tr>
-          </thead>
-
-          <tbody>
             <% @posts.each do |f| %>
-              <tr>
+              <tr class="user-field">
+                <td><%= image_tag("#{f.user.user_icon}", class: "users-icon", size: 50) %><%= f.user.name %></td>
+              </tr>
+              <tr class="subject-field">
                 <td><%= f.subject %></td>
-                <td><%= f.comment %></td>
-              <tr>
+              </tr>
+              <tr class="commnet-field">
+                <td class="post-comment"><%= f.comment %></td>
+              </tr>
             <% end %>
-          </tbody>
+          </thead>
         </table>
+        <%= paginate @posts %>
       </div>
-
-      <%= paginate @posts %>
     </div>
   </div>
 </div>

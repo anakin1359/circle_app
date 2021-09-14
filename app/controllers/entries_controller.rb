@@ -36,7 +36,8 @@ class EntriesController < ApplicationController
     @event = Event.find(@entry.event_id)
 
     # Postモデルのindexアクション
-    @posts = Post.page(params[:page]).where(user_id: current_user.id, entry_id: @entry.id).per(5)
+    # @posts = Post.page(params[:page]).where(user_id: current_user.id, entry_id: @entry.id).per(10)
+    @posts = Post.page(params[:page]).where(entry_id: @entry.id).per(10)
 
     # コメント投稿を行うための下準備
     @post = Post.new
