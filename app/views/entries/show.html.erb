@@ -53,5 +53,49 @@
         <%= link_to "予約一覧ページに戻る", user_entries_path(current_user.id) %>
       </div>
     </div>
+
+    <div class="post-section">
+      <div class="post-form">
+        <h2>連絡事項</h2>
+        <p>以下フォームよりご投稿ください</p>
+        <%= form_for(@post, url: "/users/#{current_user.id}/entries/#{@entry.id}/posts" ) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+
+          <div class="post-field">
+            <%= f.text_field :subject, placeholder: "件名:", class: 'form-control' %>
+          </div>
+
+          <div class="post-field">
+            <%= f.text_area :comment, placeholder: "内容", class: 'form-control' %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "投稿する", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="post-index">
+        <p>投稿履歴</p>
+        <table class="post-contents">
+          <thead>
+            <% @posts.each do |f| %>
+              <tr class="user-field">
+                <td><%= image_tag("#{f.user.user_icon}", class: "users-icon", size: 50) %><%= f.user.name %></td>
+              </tr>
+              <tr class="created-field">
+                <td class="post-comment"><%= f.created_at.to_s(:datetime_jp) %></td>
+              </tr>
+              <tr class="subject-field">
+                <td><%= f.subject %></td>
+              </tr>
+              <tr class="commnet-field">
+                <td class="post-comment"><%= f.comment %></td>
+              </tr>
+            <% end %>
+          </thead>
+        </table>
+        <%= paginate @posts %>
+      </div>
+    </div>
   </div>
 </div>

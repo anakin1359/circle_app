@@ -43,10 +43,11 @@
 
       <% end %>
     </div>
+
     <div class="entry-form">
       <h2>イベント予約</h2>
       <p>参加する方の「お名前」と「人数」を入力いただき、「イベントに参加する」ボタンを押してください。</p>
-      <p>※複数名人で参加される場合、「お名前」には代表者の氏名をご入力ください</p>
+      <p>※複数人で参加される場合、「お名前」には代表者の氏名をご入力ください</p>
       <%= form_for(@entry, url: "/events/#{@event.id}/entries/") do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 

@@ -6,8 +6,8 @@ ja:
         introduction: "イベント概要"
         entry_count: "参加者の人数（上限値）"
         event_price: "料金"
-        start_time: "開始日時"
-        end_time: "終了日時"
+        start_time: "開始日"
+        end_time: "終了日"
         address: "開催場所"
         event_icon: "イベントアイコン"
     models:

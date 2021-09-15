@@ -14,6 +14,7 @@ class Event < ApplicationRecord
     validates :user_id
   end
   validate :event_icon_size
+  validate :start_end_check
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
@@ -24,5 +25,11 @@ class Event < ApplicationRecord
     if event_icon.size > 1.megabytes
       errors.add(:event_icon, "should be less than 1MB")
     end
+  end
+
+  # 開始日と終了日の矛盾解消
+  def start_end_check
+    errors.add(:end_time, "は開始日より前の日時は指定できません。") unless
+    self.start_time < self.end_time
   end
 end
