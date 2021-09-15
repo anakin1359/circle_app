@@ -16,7 +16,7 @@
 #   admin: false
 # )
 
-# # サンプルユーザ
+# テストユーザ
 # 50.times do |n|
 # name  = Faker::Name.name
 # email = "test-user-0#{n+1}@example.com"
@@ -68,3 +68,17 @@
 #     event_id: event_id
 #   )
 # end
+
+# テストコメント
+10.times do |n|
+  subject = "件名: テスト0#{n+1}"
+  comment = "内容: これはテストコメントです0#{n+1}"
+  user_id = 1
+  entry_id = 38
+  Post.create!(
+    subject: subject,
+    comment: comment,
+    user_id: user_id,
+    entry_id: entry_id
+  )
+end
