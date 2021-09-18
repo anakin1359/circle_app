@@ -34,6 +34,7 @@ gem 'geocoder'
 gem 'gon'
 gem 'simple_calendar'
 gem 'ransack'
+gem 'unicorn', '6.0.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
