@@ -30,9 +30,16 @@ test:
   <<: *default
   database: develop_test
 
+# production:
+#   <<: *default
+#   database: <%= Rails.application.credentials.db[:database] %>
+#   username: <%= Rails.application.credentials.db[:username] %>
+#   password: <%= Rails.application.credentials.db[:password] %>
+#   socket: <%= Rails.application.credentials.db[:socket] %>
+
 production:
   <<: *default
-  database: <%= Rails.application.credentials.db[:database] %>
-  username: <%= Rails.application.credentials.db[:username] %>
-  password: <%= Rails.application.credentials.db[:password] %>
-  socket: <%= Rails.application.credentials.db[:socket] %>
+  database: circle_app
+  username: postgres
+  password: password01#
+  socket: /var/lib/mysql/mysql.sock
