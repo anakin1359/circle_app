@@ -18,7 +18,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
   username: postgres
   password: password
   pool: 5
@@ -28,26 +27,19 @@ default: &default
 #   adapter: postgresql
 #   encoding: unicode
 #   host: localhost
-#   username: circle
-#   password: password01#
 #   pool: 5
 
 development:
   <<: *default
+  host: db
   database: develop_development
 
 test:
   <<: *default
   database: develop_test
 
-# production:
-#   <<: *default
-#   database: <%= Rails.application.credentials.db[:database] %>
-#   username: <%= Rails.application.credentials.db[:username] %>
-#   password: <%= Rails.application.credentials.db[:password] %>
-#   socket: <%= Rails.application.credentials.db[:socket] %>
-
 production:
   <<: *default
+  host: localhost
   database: postgres_app_db
   socket: /var/lib/mysql/mysql.sock
