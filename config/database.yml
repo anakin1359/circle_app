@@ -22,13 +22,6 @@ default: &default
   password: password
   pool: 5
 
-# 本番環境向け
-# default: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   host: localhost
-#   pool: 5
-
 development:
   <<: *default
   host: db
