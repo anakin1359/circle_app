@@ -39,7 +39,7 @@ test:
 
 production:
   <<: *default
-  database: circle_app
-  username: postgres
+  database: circle_app_db
+  username: circle
   password: password01#
   socket: /var/lib/mysql/mysql.sock
