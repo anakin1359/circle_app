@@ -26,6 +26,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/credentials.yml.enc
+/var/www/circle_app/shared/config/master.key
 
 # Add dotenv-rails
 /.env
