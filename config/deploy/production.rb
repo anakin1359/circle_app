@@ -59,3 +59,6 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+# aws_ec2 server
+server '54.199.2.95', user: 'ec2-user', roles: %w{app db web}
