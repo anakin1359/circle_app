@@ -34,6 +34,7 @@ gem 'geocoder'
 gem 'gon'
 gem 'simple_calendar'
 gem 'ransack'
+gem 'unicorn', '6.0.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -46,6 +47,11 @@ group :development, :test do
   gem 'rubocop-airbnb'
   gem 'bullet'
   gem 'faker'
+  gem 'capistrano',          '3.16.0'
+  gem 'capistrano-rbenv',    '2.2.0'
+  gem 'capistrano-bundler',  '2.0.1'
+  gem 'capistrano-rails',    '1.6.1'
+  gem 'capistrano3-unicorn', '0.2.1'
 end
 
 group :development do
