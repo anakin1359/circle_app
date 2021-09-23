@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   rubocop:
-    working_directory: ~/potepanec
+    working_directory: ~/circle_app
     docker:
       - image: circleci/ruby:2.5.9
     steps:
@@ -24,16 +24,14 @@ jobs:
             - vendor/bundle
 
 orbs:
-  build-tools: circleci/build-tools@2.6.3
-  jq: circleci/jq@1.9.1
+  build-tools: circleci/build-tools@2.9.1
+  jq: circleci/jq@2.2.0
 
 workflows:
   version: 2
   build:
     jobs:
-      - rspec
       - rubocop
-      - heroku_deploy:
-          requires:
-            - rspec
-            - rubocop
+      # - rspec:
+      #     requires:
+      #       - rubocop
