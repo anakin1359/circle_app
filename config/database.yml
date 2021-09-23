@@ -29,6 +29,7 @@ development:
 
 test:
   <<: *default
+  host: db
   database: develop_test
 
 production:
