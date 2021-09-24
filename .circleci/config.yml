@@ -29,7 +29,7 @@ jobs:
       - image: circleci/ruby:2.5.9-node-browsers
         environment:
           RAILS_ENV: test
-          POSTGES_HOST: 127.0.0.1
+          POSTGES_HOST: db
       - image: circleci/postgres
         environment:
           # POSTGRES_DB:
