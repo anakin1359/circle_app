@@ -23,6 +23,48 @@ jobs:
           paths:
             - vendor/bundle
 
+  rspec:
+    working_directory: ~/circle_app
+    docker:
+      - image: circleci/ruby:2.5.9-node-browsers
+        environment:
+          RAILS_ENV: test
+          POSTGRES_HOST: localhost
+      - image: circleci/postgres
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: develop_test
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gemfiles-{{ .Branch }}-
+            - gemfiles-master-
+      - run:
+          name: bundle & Yarn install
+          command: |
+            gem install bundler -v 1.17.3
+            bundle install
+            bundle update --bundler
+            yarn install
+      - save_cache:
+          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: Wait for DB to start
+          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 120s
+      - run:
+          name: Create DB
+          command: |
+            bin/rails db:migrate
+            bin/rails db:schema:load --trace
+      - run:
+          name: Rspec
+          command: bundle exec rspec
+
 orbs:
   build-tools: circleci/build-tools@2.9.1
   jq: circleci/jq@2.2.0
@@ -31,7 +73,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - rubocop
-      # - rspec:
-      #     requires:
-      #       - rubocop
+      - rspec
+      - rubocop:
+          requires:
+            - rspec
