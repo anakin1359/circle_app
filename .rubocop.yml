@@ -8,7 +8,21 @@ AllCops:
     - 'config/environments/*'
     - 'config/application.rb'
     - 'config/initializers/*'
+    - 'config/deploy/*'
     - 'config/spring.rb'
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'path/ruby'
+    - '.backup'
+
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 145
+
+Airbnb/DefaultScope:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: no_comma

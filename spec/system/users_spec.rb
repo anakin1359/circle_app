@@ -128,7 +128,7 @@ RSpec.describe "Users", type: :system do
       before do
         visit edit_user_registration_path
       end
-      
+
       it "メールアドレスの項目が表示されている" do
         expect(page).to have_text('メールアドレス')
       end
@@ -136,7 +136,7 @@ RSpec.describe "Users", type: :system do
       it "現在のパスワードの項目が表示されている" do
         expect(page).to have_text('現在のパスワード')
       end
-      
+
       it "新しいパスワードの項目が表示されている" do
         expect(page).to have_text('パスワード')
       end
@@ -174,7 +174,7 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_text('エラーが発生したため ユーザ は保存されませんでした')
     end
   end
-  
+
   describe "ユーザログインを行う場合" do
     before do
       @user = create(:user)
@@ -269,7 +269,7 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_text('現在のパスワードは不正な値です')
     end
 
-    scenario "失敗した場合はflashメッセージ（alert）が表示されている（現在のパスワード不一致）" do
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（確認用のパスワード不一致）" do
       fill_in('user[email]',                 with: 'user01@example.com')
       fill_in('user[current_password]',      with: 'password01')
       fill_in('user[password]',              with: 'password02')

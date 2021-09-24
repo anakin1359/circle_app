@@ -64,24 +64,24 @@ class EventsController < ApplicationController
 
   private
 
-    # Viewから送られてくる情報をransackを使用して加工 >> イベントレコード生成 >> @qに格納
-    def set_q
-      @q = Event.ransack(params[:q])
-    end
+  # Viewから送られてくる情報をransackを使用して加工 >> イベントレコード生成 >> @qに格納
+  def set_q
+    @q = Event.ransack(params[:q])
+  end
 
-    # ここで指定した項目のみweb経由での変更を許可にする
-    def event_params
-      params.require(:event).permit(
-        :title,
-        :introduction,
-        :start_time,
-        :end_time,
-        :entry_count,
-        :event_price,
-        :address,
-        :event_icon,
-        :latitude,
-        :longitude
-      )
-    end
+  # ここで指定した項目のみweb経由での変更を許可にする
+  def event_params
+    params.require(:event).permit(
+      :title,
+      :introduction,
+      :start_time,
+      :end_time,
+      :entry_count,
+      :event_price,
+      :address,
+      :event_icon,
+      :latitude,
+      :longitude
+    )
+  end
 end
