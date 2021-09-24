@@ -1,4 +1,5 @@
 version: "3"
+
 services:
   db:
     image: postgres
@@ -8,11 +9,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.ci
-    container_name: circle_app_web
+    container_name: circle_app_web_1
     ports:
-      - "3000:3000"
+      - '3000:3000'
     depends_on:
       - db
-    networks:
-      - default
-    command: bundle exec rails server -b 0.0.0.0
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
