@@ -38,6 +38,7 @@ jobs:
           name: Start containers and verify it is working
           command: |
             set -x
+            docker-compose build
             docker-compose up -d
             docker exec circle_app_web_1 curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
       - run:
