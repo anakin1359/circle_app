@@ -2,6 +2,7 @@ inherit_from:
   - .rubocop_airbnb.yml
 
 AllCops:
+  TargetRubyVersion: 2.5.9
   Exclude:
     - 'db/**/*'
     - 'bin/*'
