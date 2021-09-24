@@ -26,28 +26,71 @@ jobs:
   rspec:
     working_directory: ~/circle_app
     docker:
-      - image: circleci/ruby
+      - image: circleci/ruby:2.5.9
+        environment:
+          RAILS_ENV: test
+          POSTGRES_HOST: db
+          # POSTGRES_HOST: 127.0.0.1
+      - image: circleci/postgres
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: develop_test
     steps:
       - checkout
-      - setup_remote_docker
+      - restore_cache:
+          keys:
+            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gemfiles-{{ .Branch }}-
+            - gemfiles-master-
       - run:
-          name: Setup environment variable
+          name: bundle & Yarn install
           command: |
-            echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV
+            gem install bundler -v 1.17.3
+            bundle install
+            bundle update --bundler
+            yarn install
+      - save_cache:
+          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
-          name: Start containers and verify it is working
+          name: Wait for DB to start
+          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 120s
+      - run:
+          name: Create DB
           command: |
-            set -x
-            docker-compose build
-            docker-compose up -d
-            docker exec circle_app_web_1 curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+            bin/rails db:migrate
+            bin/rails db:schema:load --trace
       - run:
-          name: Setup database
-          command: |
-            docker-compose exec circle_app bash -c 'yes n | bundle exec rails g spree:install --migrate --seed --sample --auto_accept'
-      - run:
-          name: Run rspec
-          command: docker-compose exec circle_app rspec
+          name: Rspec
+          command: bundle exec rspec
+
+  # rspec:
+  #   working_directory: ~/circle_app
+  #   docker:
+  #     - image: circleci/ruby
+  #   steps:
+  #     - checkout
+  #     - setup_remote_docker
+  #     - run:
+  #         name: Setup environment variable
+  #         command: |
+  #           echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV
+  #     - run:
+  #         name: Start containers and verify it is working
+  #         command: |
+  #           set -x
+  #           docker-compose build
+  #           docker-compose up -d
+  #           docker exec circle_app_web_1 curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+  #     - run:
+  #         name: Setup database
+  #         command: |
+  #           docker-compose exec circle_app bash -c 'yes n | bundle exec rails g spree:install --migrate --seed --sample --auto_accept'
+  #     - run:
+  #         name: Run rspec
+  #         command: docker-compose exec circle_app rspec
 
 orbs:
   build-tools: circleci/build-tools@2.9.1
