@@ -1,0 +1,35 @@
+<% provide(:title, "予約履歴") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="entries-index">
+      <h2>予約履歴一覧</h2>
+      <%= paginate @entries %>
+      <table>
+        <thead>
+          <tr>
+            <th class="entry-item">開催日時</th>
+            <th class="entry-item">イベント名</th>
+            <th class="entry-item">イベント概要</th>
+            <th class="entry-operation">イベント詳細</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @entries.each do |f| %>
+            <tr>
+              <td class="entry-item"><%= f.event.start_time.to_s(:datetime_jp) %> ~ </td>
+              <td class="entry-item"><%= f.event.title %></td>
+              <td class="entry-item"><%= f.event.introduction %></td>
+              <td class="entry-operation"><%= link_to "詳細", user_entry_path(current_user.id, f.id), class: "btn btn-primary" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @entries %>
+      <div class="mypage-link">
+        <%= link_to "マイページ", user_path(current_user.id) %>
+      </div>
+    </div>
+  </div>
+</div>

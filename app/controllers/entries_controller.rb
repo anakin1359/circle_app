@@ -51,15 +51,15 @@ class EntriesController < ApplicationController
 
   private
 
-    # Viewから送られてくる情報をransackを使用して加工 >> イベントレコード生成 >> @qに格納
-    def set_q
-      @q = Entry.where(user_id: current_user.id).ransack(params[:q])
-    end
+  # Viewから送られてくる情報をransackを使用して加工 >> イベントレコード生成 >> @qに格納
+  def set_q
+    @q = Entry.where(user_id: current_user.id).ransack(params[:q])
+  end
 
-    # ここで指定した項目のみweb経由での変更を許可にする
-    def entry_params
-      params.require(:entry).permit(
-        :entry_name, :entry_count, :entry_price
-      )
-    end
+  # ここで指定した項目のみweb経由での変更を許可にする
+  def entry_params
+    params.require(:entry).permit(
+      :entry_name, :entry_count, :entry_price
+    )
+  end
 end

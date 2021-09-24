@@ -29,7 +29,6 @@ class Event < ApplicationRecord
 
   # 開始日と終了日の矛盾解消
   def start_end_check
-    errors.add(:end_time, "は開始日より前の日時は指定できません。") unless
-    self.start_time < self.end_time
+    errors.add(:end_time, "は開始日より前の日時は指定できません。") unless start_time < end_time
   end
 end
