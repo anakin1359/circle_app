@@ -23,6 +23,31 @@ jobs:
           paths:
             - vendor/bundle
 
+  rspec:
+    working_directory: ~/circle_app
+    docker:
+      - image: circleci/ruby:2.5.9
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Setup environment variable
+          command: |
+            echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV
+      - run:
+          name: Start containers and verify it is working
+          command: |
+            set -x
+            docker-compose up -d
+            docker exec circle_app_web curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+      - run:
+          name: Setup database
+          command: |
+            docker-compose exec circle_app bash -c 'yes n | bundle exec rails g spree:install --migrate --seed --sample --auto_accept'
+      - run:
+          name: Run rspec
+          command: docker-compose exec circle_app rspec
+
 orbs:
   build-tools: circleci/build-tools@2.9.1
   jq: circleci/jq@2.2.0
@@ -31,7 +56,8 @@ workflows:
   version: 2
   build:
     jobs:
-      - rubocop
+      - rspec
+      # - rubocop
       # - rspec:
       #     requires:
       #       - rubocop
