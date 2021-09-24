@@ -21,12 +21,12 @@
 .byebug_history
 
 /test
-/backup
+/.backup
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/credentials.yml.enc
-/var/www/circle_app/shared/config/master.key
+/shared/*
 
 # Add dotenv-rails
 /.env
