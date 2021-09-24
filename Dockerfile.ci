@@ -16,15 +16,12 @@ RUN apt-get update && apt-get install -y \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list                                      \
     && sh -c 'wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'                                         \
     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'   \
-    && wget https://dev.mysql.com/get/mysql-apt-config_0.8.10-1_all.deb                                                                   \
-    && DEBIAN_FRONTEND=noninteractive dpkg -i mysql-apt-config_0.8.10-1_all.deb                                                           \
     && apt-get update \
     && apt-get remove -y \
       libmariadbclient18 \
       libmariadbclient-dev-compat \
       libmariadbclient-dev \
     && apt-get install -y --allow-unauthenticated	\
-      libmysqlclient-dev \
       postgresql-client \
       libpq-dev \
       nodejs \
