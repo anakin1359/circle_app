@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   # 投稿済みコメント全件表示
   def index
     @entry = Entry.find(params[:entry_id])
@@ -23,9 +22,9 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post).permit(
-        :subject, :comment
-      )
-    end
+  def post_params
+    params.require(:post).permit(
+      :subject, :comment
+    )
+  end
 end
