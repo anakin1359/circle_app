@@ -29,12 +29,12 @@ jobs:
       - image: circleci/ruby:2.5.9-node-browsers
         environment:
           RAILS_ENV: test
-          POSTGES_HOST: db
+          # POSTGES_HOST: db
       - image: circleci/postgres
-        environment:
-          # POSTGRES_DB:
-          # POSTGRES_USER:
-          POSTGRES_PASSWORD: password
+        # environment:
+        #   POSTGRES_DB: develop_test
+        #   POSTGRES_USER: postgres
+        #   POSTGRES_PASSWORD: password
     steps:
       - checkout
       - restore_cache:
@@ -53,8 +53,8 @@ jobs:
       - run:
           name: Wait for the DB to start.
           command: dockerize -wait tcp://127.0.0.1:5432 -timeout 120s
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load --trace
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load --trace
       # Rspec
       - run:
           name: Rspec
