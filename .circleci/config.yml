@@ -1,27 +1,27 @@
 version: 2.1
 jobs:
-  # rubocop:
-  #   working_directory: ~/circle_app
-  #   docker:
-  #     - image: circleci/ruby:2.5.9
-  #   steps:
-  #     - checkout
-  #     - restore_cache:
-  #         keys:
-  #           - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-  #           - gemfiles-{{ .Branch }}-
-  #           - gemfiles-master-
-  #     - run: bundle config --local path vendor/bundle
-  #     - run:
-  #         name: bundle install
-  #         command: bundle check || bundle install --jobs=8 --clean
-  #     - run:
-  #         name: Run rubocop
-  #         command: bundle exec rubocop --parallel
-  #     - save_cache:
-  #         key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-  #         paths:
-  #           - vendor/bundle
+  rubocop:
+    working_directory: ~/circle_app
+    docker:
+      - image: circleci/ruby:2.5.9
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gemfiles-{{ .Branch }}-
+            - gemfiles-master-
+      - run: bundle config --local path vendor/bundle
+      - run:
+          name: bundle install
+          command: bundle check || bundle install --jobs=8 --clean
+      - run:
+          name: Run rubocop
+          command: bundle exec rubocop --parallel
+      - save_cache:
+          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
 
   rspec:
     working_directory: ~/circle_app
@@ -29,8 +29,6 @@ jobs:
       - image: circleci/ruby:2.5.9-node-browsers
         environment:
           RAILS_ENV: test
-          # POSTGRES_HOST: db
-          # POSTGRES_HOST: 127.0.0.1
           POSTGRES_HOST: localhost
       - image: circleci/postgres
         environment:
@@ -67,32 +65,6 @@ jobs:
           name: Rspec
           command: bundle exec rspec
 
-  # rspec:
-  #   working_directory: ~/circle_app
-  #   docker:
-  #     - image: circleci/ruby
-  #   steps:
-  #     - checkout
-  #     - setup_remote_docker
-  #     - run:
-  #         name: Setup environment variable
-  #         command: |
-  #           echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV
-  #     - run:
-  #         name: Start containers and verify it is working
-  #         command: |
-  #           set -x
-  #           docker-compose build
-  #           docker-compose up -d
-  #           docker exec circle_app_web_1 curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
-  #     - run:
-  #         name: Setup database
-  #         command: |
-  #           docker-compose exec circle_app bash -c 'yes n | bundle exec rails g spree:install --migrate --seed --sample --auto_accept'
-  #     - run:
-  #         name: Run rspec
-  #         command: docker-compose exec circle_app rspec
-
 orbs:
   build-tools: circleci/build-tools@2.9.1
   jq: circleci/jq@2.2.0
@@ -102,7 +74,6 @@ workflows:
   build:
     jobs:
       - rspec
-      # - rubocop
-      # - rspec:
-      #     requires:
-      #       - rubocop
+      - rubocop:
+          requires:
+            - rspec
