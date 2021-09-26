@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
         @user.name = nil
         @user.valid?
         expect(@user).not_to be_valid
-        expect(@user.errors.full_messages).to include("Nameを入力してください")
+        expect(@user.errors.full_messages).to include("氏名を入力してください")
       end
     end
 
@@ -48,7 +48,7 @@ RSpec.describe User, type: :model do
         @user.name = "a" * 51
         @user.valid?
         expect(@user).not_to be_valid
-        expect(@user.errors.full_messages).to include("Nameは50文字以内で入力してください")
+        expect(@user.errors.full_messages).to include("氏名は50文字以内で入力してください")
       end
     end
 

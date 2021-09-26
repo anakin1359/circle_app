@@ -14,7 +14,8 @@ development:
 
 test:
   <<: *default
-  host: localhost
+  host: db
+  # host: localhost
   database: develop_test
 
 production:
