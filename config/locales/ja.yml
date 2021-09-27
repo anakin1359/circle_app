@@ -20,7 +20,7 @@ ja:
         entry_price: "料金（円）"
       post:
         subject: "件名"
-        comment: "コメント"
+        comment: "コメント内容"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

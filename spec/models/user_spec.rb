@@ -89,12 +89,19 @@ RSpec.describe User, type: :model do
 
     context "メールアドレスが重複した場合" do
       it "登録ができずエラーメッセージが表示されている" do
-        @email_duplication_user = User.new(
+        @sample_user = User.new(
           name: "test01",
           email: "user01@example.com",
           password: "password01",
           password_confirmation: "password01"
         )
+        @email_duplication_user = User.new(
+          name: "test10",
+          email: "user01@example.com",
+          password: "password01",
+          password_confirmation: "password01"
+        )
+        @sample_user.save
         @email_duplication_user.save
         @email_duplication_user.valid?
         expect(@email_duplication_user).not_to be_valid
