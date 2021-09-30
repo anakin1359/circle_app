@@ -1,5 +1,9 @@
 ja:
   activerecord:
+    models:
+      event: "イベント"
+      entry: "エントリー"
+      post: "投稿"
     attributes:
       event:
         title: "タイトル"
@@ -10,8 +14,13 @@ ja:
         end_time: "終了日"
         address: "開催場所"
         event_icon: "イベントアイコン"
-    models:
-      event: "イベント"
+      entry:
+        entry_name: "参加者のお名前"
+        entry_count: "参加者（人）"
+        entry_price: "料金（円）"
+      post:
+        subject: "件名"
+        comment: "コメント内容"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
