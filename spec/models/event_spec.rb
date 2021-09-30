@@ -91,7 +91,7 @@ RSpec.describe Event, type: :model do
       it "登録ができずエラーメッセージが表示されている" do
         dt = DateTime.now
         @event.start_time = dt
-        @event.end_time = dt - Rational(1, 24 * 60) 
+        @event.end_time = dt - Rational(1, 24 * 60)
         @event.valid?
         expect(@event).not_to be_valid
         expect(@event.errors.full_messages).to include("終了日は開始日より前の日時は指定できません")
