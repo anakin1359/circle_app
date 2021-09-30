@@ -44,7 +44,9 @@
             <th class="event-item">イベント名</th>
             <th class="event-item">イベント概要</th>
             <th class="event-operation">操作</th>
-            <th colspan="2" class="event-operation">操作（管理者）</th>
+            <% if current_user.admin? %>
+              <th colspan="2" class="event-operation">操作（管理者）</th>
+            <% end %>
           </tr>
         </thead>
 
@@ -55,8 +57,10 @@
               <td class="event-item"><%= f.title %></td>
               <td class="event-item"><%= f.introduction %></td>
               <td class="event-operation"><%= link_to "詳細", user_event_path(current_user.id, f.id), class: "btn btn-primary" %></td>
+              <% if current_user.admin? %>
               <td class="event-operation"><%= link_to "編集", edit_event_path(f.id), class: "btn btn-success" %></td>
               <td class="event-operation"><%= link_to "削除", f, method: :delete, data: { confirm: "イベントを削除します。よろしいですか?" }, class: "btn btn-danger" %></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
