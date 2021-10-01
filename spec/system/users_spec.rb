@@ -178,6 +178,34 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_button('Update')
       end
     end
+
+    context "登録済みイベント一覧ページ上に" do
+      before do
+        visit events_path
+      end
+
+      it "編集ボタンが表示されていない" do
+        has_no_link?('編集')
+      end
+
+      it "削除ボタンが表示されていない" do
+        has_no_link?('削除')
+      end
+    end
+
+    context "予約履歴一覧ページ上に" do
+      before do
+        visit user_entries_path(@user.id)
+      end
+
+      it "編集ボタンが表示されていない" do
+        has_no_link?('編集')
+      end
+
+      it "削除ボタンが表示されていない" do
+        has_no_link?('削除')
+      end
+    end
   end
 
   describe "admin（管理者権限）でLoginしている時" do
@@ -220,6 +248,34 @@ RSpec.describe "Users", type: :system do
 
       it "ユーザ一覧の項目が表示されている" do
         expect(page).to have_text('ユーザ一覧')
+      end
+    end
+
+    context "登録済みイベント一覧ページ上に" do
+      before do
+        visit events_path
+      end
+
+      it "編集ボタンが表示されている" do
+        has_link?('編集')
+      end
+
+      it "削除ボタンが表示されている" do
+        has_link?('削除')
+      end
+    end
+
+    context "予約履歴一覧ページ上に" do
+      before do
+        visit user_entries_path(@user.id)
+      end
+
+      it "編集ボタンが表示されている" do
+        has_link?('編集')
+      end
+
+      it "削除ボタンが表示されている" do
+        has_link?('削除')
       end
     end
 
