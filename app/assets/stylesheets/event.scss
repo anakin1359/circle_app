@@ -104,7 +104,7 @@
   table {
     margin: 20px 0px 10px 0px;
   }
-  
+
   table tr {
     border-bottom: solid 1px #eee;
     cursor: pointer;
@@ -113,11 +113,11 @@
   table tr:nth-child(odd){
     background-color: #fafafa;
   }
-  
+
   table tr:hover {
     background-color: #d4f0fd;
   }
-  
+
   table th {
     background-color: #d4f0fd;
     text-align: center;
@@ -132,7 +132,7 @@
     width: 10%;
     padding: 15px 0px;
   }
-  
+
   table td {
     padding: 15px 0px;
   }
@@ -186,7 +186,7 @@
       color: #FFF;
       font-weight: normal;
     }
-    
+
     th:after {
       left: 100%;
       top: 50%;

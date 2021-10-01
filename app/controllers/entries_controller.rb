@@ -23,8 +23,8 @@ class EntriesController < ApplicationController
     @event = Event.find(params[:event_id])
     @entry.event_id = @event.id
     if @entry.save
-      flash[:notice] = "イベント予約が完了しました"
-      redirect_to user_entries_path(current_user.id)
+      # flash[:notice] = "イベント予約が完了しました"
+      redirect_to user_entries_path(current_user.id), notice: "イベント予約が完了しました"
     else
       render :new
     end

@@ -163,71 +163,12 @@ p {
   }
 }
 
-// .field_with_errors {
-//   @extend .has-error;
-//   .form-control {
-//     color: $state-danger-text;
-//   }
-// }
-
-// .notice {
-//   background-color: #ddfcd5;
-//   border-color: #44a815;
-//   color: #6daf4cc4;
-// }
-
-// .alert {
-//   background-color: #f2dede;
-//   border-color: #ebccd1;
-//   color: #a94442;
-// }
-
-// /* events */
-
-// .events {
-//   list-style: none;
-//   padding: 0;
-//   li {
-//     padding: 10px 0;
-//     border-top: 1px solid #e8e8e8;
-//   }
-//   .admin {
-//     margin-top: 5em;
-//     padding-top: 0;
-//   }
-//   .title {
-//     display: block;
-//     margin-left: 60px;
-//     img {
-//       display: block;
-//       padding: 5px 0;
-//     }
-//   }
-//   .timestamp {
-//     color: $gray-light;
-//     display: block;
-//     margin-left: 60px;
-//   }
-//   .gravatar {
-//     float: left;
-//     margin-right: 10px;
-//     margin-top: 5px;
-//   }
-// }
-
-// aside {
-//   textarea {
-//     height: 100px;
-//     margin-bottom: 5px;
-//   }
-// }
-
-// span.picture {
-//   margin-top: 10px;
-//   input {
-//     border: 0;
-//   }
-// }
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
 
 /* Event calendar */
 
