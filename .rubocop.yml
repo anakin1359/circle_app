@@ -22,6 +22,9 @@ Rails:
 Metrics/LineLength:
   Max: 145
 
+RSpec/EmptyLineAfterSubject:
+  Enabled: false
+
 Airbnb/DefaultScope:
   Enabled: false
 
