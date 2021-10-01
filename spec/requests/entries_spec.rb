@@ -5,7 +5,7 @@ RSpec.describe "Entries", type: :request do
     before do
       @event = create(:event)
     end
-    
+
     context "マイページ >> 対象イベントを選択 >> イベントに参加する にアクセスした場合" do
       it "returns http success" do
         get new_event_entry_path(@event.id)
@@ -13,7 +13,7 @@ RSpec.describe "Entries", type: :request do
       end
     end
   end
-  
+
   describe "予約済みイベント一覧を参照する時（entry/index）" do
     before do
       @user = create(:user)
