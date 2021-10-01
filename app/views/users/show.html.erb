@@ -1,58 +1,54 @@
 <% provide(:title, @user.name) %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="mypage-form">
-      <h2><%= image_tag("#{@user.user_icon}") %><%= @user.name %> さん</h2>
-      <section>
-      <div class="section-title">
-        <span>操作</span>
-        <div class="user-sections">
-          <li>
-            <%= link_to events_path do %>
-              <i class="fa fa-play fa-la" aria-hidden="true"></i> イベントに参加する
-            <% end %>
-          </li>
-          <li>
-            <%= link_to events_scheduler_path do %>
-              <i class="fa fa-calendar fa-la" aria-hidden="true"></i> イベントカレンダーを見る
-            <% end %>
-          </li>
-          <li>
-            <%= link_to user_entries_path(current_user.id) do %>
-              <i class="fa fa-book fa-la" aria-hidden="true"></i> 予約履歴を確認する
-            <% end %>
-          </li>
-          <li>
-            <%= link_to edit_user_registration_path do %>
-              <i class="fa fa-user-circle fa-la" aria-hidden="true"></i> 登録情報を変更する
-            <% end %>
-          </li>
-        </div>
-      </div>
-      <% if current_user.admin? %>
-        <div class="section-title">
-          <span>操作（管理者）</span>
-          <div class="admin-sections">
-            <li>
-              <%= link_to new_event_path do %>
-                <i class="fa fa-plus fa-la" aria-hidden="true"></i> イベントを登録する
-              <% end %>
-            </li>
-            <li>
-              <%= link_to events_path do %>
-                <i class="fa fa-cogs fa-la" aria-hidden="true"></i> 登録済みイベントを編集する
-              <% end %>
-            </li>
-            <li>
-              <%= link_to users_path do %>
-                <i class="fa fa-users fa-la" aria-hidden="true"></i> ユーザ一覧を参照する
-              <% end %>
-            </li>
-          </div>
-        </div>
-      <% end %>
-      </section>
+<div class="mypage-form">
+  <h2><%= image_tag("#{@user.user_icon}") %><%= @user.name %> さん</h2>
+  <section>
+  <div class="section-title">
+    <span>操作</span>
+    <div class="user-sections">
+      <li>
+        <%= link_to events_path do %>
+          <i class="fa fa-play fa-la" aria-hidden="true"></i> イベントに参加する
+        <% end %>
+      </li>
+      <li>
+        <%= link_to events_scheduler_path do %>
+          <i class="fa fa-calendar fa-la" aria-hidden="true"></i> イベントカレンダーを見る
+        <% end %>
+      </li>
+      <li>
+        <%= link_to user_entries_path(current_user.id) do %>
+          <i class="fa fa-book fa-la" aria-hidden="true"></i> 予約履歴を確認する
+        <% end %>
+      </li>
+      <li>
+        <%= link_to edit_user_registration_path do %>
+          <i class="fa fa-user-circle fa-la" aria-hidden="true"></i> 登録情報を変更する
+        <% end %>
+      </li>
     </div>
   </div>
+  <% if current_user.admin? %>
+    <div class="section-title">
+      <span>操作（管理者）</span>
+      <div class="admin-sections">
+        <li>
+          <%= link_to new_event_path do %>
+            <i class="fa fa-plus fa-la" aria-hidden="true"></i> イベントを登録する
+          <% end %>
+        </li>
+        <li>
+          <%= link_to events_path do %>
+            <i class="fa fa-cogs fa-la" aria-hidden="true"></i> 登録済みイベントを編集する
+          <% end %>
+        </li>
+        <li>
+          <%= link_to users_path do %>
+            <i class="fa fa-users fa-la" aria-hidden="true"></i> ユーザ一覧を参照する
+          <% end %>
+        </li>
+      </div>
+    </div>
+  <% end %>
+  </section>
 </div>

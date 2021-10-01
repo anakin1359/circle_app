@@ -1,101 +1,97 @@
 <% provide(:title, "予約内容") %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="entry-section">
-      <h2>予約内容</h2>
-      <div class="entry-image">
-        <%= image_tag("#{@event.event_icon}") %>
+<div class="entry-section">
+  <h2>予約内容</h2>
+  <div class="entry-image">
+    <%= image_tag("#{@event.event_icon}") %>
+  </div>
+  <table class="entry-more">
+    <thead>
+      <tr>
+        <th>イベントタイトル</th>
+        <td><%= @event.title %></td>
+      </tr>
+      <tr>
+        <th>イベント概要</th>
+        <td><%= @event.introduction %></td>
+      </tr>
+      <tr>
+        <th>開催日時</th>
+        <td><%= @event.start_time.to_s(:datetime_jp) %> ~ <%= @event.end_time.to_s(:datetime_jp) %></td>
+      </tr>
+      <tr>
+        <th>開催場所</th>
+        <td><%= @event.address %></td>
+      </tr>
+      <tr>
+        <th>Googleマップ</th>
+        <td>
+          <div id="map" data-lat-id="<%= @event.latitude %>" data-lng-id="<%= @event.longitude %>"></div>
+          <p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@event.latitude},#{@event.longitude}&iwloc=J", target: "_blank" %></p>
+        </td>
+      </tr>
+      <tr>
+        <th>申込者のお名前</th>
+        <td><%= @entry.entry_name %></td>
+      </tr>
+      <tr>
+        <th>参加者の人数</th>
+        <td><%= @entry.entry_count %> 人</td>
+      </tr>
+      <tr>
+        <th>参加料金</th>
+        <td><%= @entry.entry_price %> 円</td>
+      </tr>
+    </thead>
+  </table>
+  <div class="actions">
+    <%= link_to "このイベントをキャンセルする", user_entry_path(current_user.id, @entry.id), method: :delete, data: { confirm: "イベントをキャンセルします。よろしいですか?" }, class: "btn btn-danger" %>
+  </div>
+  <div class="entry-index-link">
+    <%= link_to "予約一覧ページに戻る", user_entries_path(current_user.id) %>
+  </div>
+</div>
+
+<div class="post-section">
+  <div class="post-form">
+    <h2>連絡事項</h2>
+    <p>以下フォームよりご投稿ください</p>
+    <%= form_for(@post, url: "/users/#{current_user.id}/entries/#{@entry.id}/posts" ) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="post-field">
+        <%= f.text_field :subject, placeholder: "件名:", class: 'form-control' %>
       </div>
-      <table class="entry-more">
-        <thead>
-          <tr>
-            <th>イベントタイトル</th>
-            <td><%= @event.title %></td>
-          </tr>
-          <tr>
-            <th>イベント概要</th>
-            <td><%= @event.introduction %></td>
-          </tr>
-          <tr>
-            <th>開催日時</th>
-            <td><%= @event.start_time.to_s(:datetime_jp) %> ~ <%= @event.end_time.to_s(:datetime_jp) %></td>
-          </tr>
-          <tr>
-            <th>開催場所</th>
-            <td><%= @event.address %></td>
-          </tr>
-          <tr>
-            <th>Googleマップ</th>
-            <td>
-              <div id="map" data-lat-id="<%= @event.latitude %>" data-lng-id="<%= @event.longitude %>"></div>
-              <p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@event.latitude},#{@event.longitude}&iwloc=J", target: "_blank" %></p>
-            </td>
-          </tr>
-          <tr>
-            <th>申込者のお名前</th>
-            <td><%= @entry.entry_name %></td>
-          </tr>
-          <tr>
-            <th>参加者の人数</th>
-            <td><%= @entry.entry_count %> 人</td>
-          </tr>
-          <tr>
-            <th>参加料金</th>
-            <td><%= @entry.entry_price %> 円</td>
-          </tr>
-        </thead>
-      </table>
+
+      <div class="post-field">
+        <%= f.text_area :comment, placeholder: "内容", class: 'form-control' %>
+      </div>
+
       <div class="actions">
-        <%= link_to "このイベントをキャンセルする", user_entry_path(current_user.id, @entry.id), method: :delete, data: { confirm: "イベントをキャンセルします。よろしいですか?" }, class: "btn btn-danger" %>
+        <%= f.submit "投稿する", class: "btn btn-primary" %>
       </div>
-      <div class="entry-index-link">
-        <%= link_to "予約一覧ページに戻る", user_entries_path(current_user.id) %>
-      </div>
-    </div>
-
-    <div class="post-section">
-      <div class="post-form">
-        <h2>連絡事項</h2>
-        <p>以下フォームよりご投稿ください</p>
-        <%= form_for(@post, url: "/users/#{current_user.id}/entries/#{@entry.id}/posts" ) do |f| %>
-          <%= render 'shared/error_messages', object: f.object %>
-
-          <div class="post-field">
-            <%= f.text_field :subject, placeholder: "件名:", class: 'form-control' %>
-          </div>
-
-          <div class="post-field">
-            <%= f.text_area :comment, placeholder: "内容", class: 'form-control' %>
-          </div>
-
-          <div class="actions">
-            <%= f.submit "投稿する", class: "btn btn-primary" %>
-          </div>
+    <% end %>
+  </div>
+  <div class="post-index">
+    <p>投稿履歴</p>
+    <table class="post-contents">
+      <thead>
+        <% @posts.each do |f| %>
+          <tr class="user-field">
+            <td><%= image_tag("#{f.user.user_icon}", class: "users-icon", size: 50) %><%= f.user.name %></td>
+          </tr>
+          <tr class="created-field">
+            <td class="post-comment"><%= f.created_at.to_s(:datetime_jp) %></td>
+          </tr>
+          <tr class="subject-field">
+            <td><%= f.subject %></td>
+          </tr>
+          <tr class="commnet-field">
+            <td class="post-comment"><%= f.comment %></td>
+          </tr>
         <% end %>
-      </div>
-      <div class="post-index">
-        <p>投稿履歴</p>
-        <table class="post-contents">
-          <thead>
-            <% @posts.each do |f| %>
-              <tr class="user-field">
-                <td><%= image_tag("#{f.user.user_icon}", class: "users-icon", size: 50) %><%= f.user.name %></td>
-              </tr>
-              <tr class="created-field">
-                <td class="post-comment"><%= f.created_at.to_s(:datetime_jp) %></td>
-              </tr>
-              <tr class="subject-field">
-                <td><%= f.subject %></td>
-              </tr>
-              <tr class="commnet-field">
-                <td class="post-comment"><%= f.comment %></td>
-              </tr>
-            <% end %>
-          </thead>
-        </table>
-        <%= paginate @posts %>
-      </div>
-    </div>
+      </thead>
+    </table>
+    <%= paginate @posts %>
   </div>
 </div>
