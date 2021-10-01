@@ -1,53 +1,49 @@
 <% provide(:title, "イベント詳細") %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="event-section">
-      <h2>イベント詳細</h2>
-      <div class="event-image">
-        <%= image_tag("#{@event.event_icon}") %>
-      </div>
-      <table class="event-more">
-        <thead>
-          <tr>
-            <th>イベントタイトル</th>
-            <td><%= @event.title %></td>
-          </tr>
-          <tr>
-            <th>イベント概要</th>
-            <td><%= @event.introduction %></td>
-          </tr>
-          <tr>
-            <th>募集人数</th>
-            <td><%= @event.entry_count %> 人</td>
-          </tr>
-          <tr>
-            <th>参加料金</th>
-            <td><%= @event.event_price %> 円</td>
-          </tr>
-          <tr>
-            <th>開催日時</th>
-            <td><%= @event.start_time.to_s(:datetime_jp) %> ~ <%= @event.end_time.to_s(:datetime_jp) %></td>
-          </tr>
-          <tr>
-            <th>開催場所</th>
-            <td><%= @event.address %></td>
-          </tr>
-          <tr>
-            <th>Googleマップ</th>
-            <td>
-              <div id="map" data-lat-id="<%= @event.latitude %>" data-lng-id="<%= @event.longitude %>"></div>
-              <p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@event.latitude},#{@event.longitude}&iwloc=J", target: "_blank" %></p>
-            </td>
-          </tr>
-        </thead>
-      </table>
-      <div class="actions">
-        <%= link_to "このイベントに参加する", new_event_entry_path(@event.id), class: "btn btn-primary" %>
-      </div>
-      <div class="event-index-link">
-        <%= link_to "イベント一覧ページに戻る", events_path %>
-      </div>
-    </div>
+<div class="event-section">
+  <h2>イベント詳細</h2>
+  <div class="event-image">
+    <%= image_tag("#{@event.event_icon}") %>
+  </div>
+  <table class="event-more">
+    <thead>
+      <tr>
+        <th>イベントタイトル</th>
+        <td><%= @event.title %></td>
+      </tr>
+      <tr>
+        <th>イベント概要</th>
+        <td><%= @event.introduction %></td>
+      </tr>
+      <tr>
+        <th>募集人数</th>
+        <td><%= @event.entry_count %> 人</td>
+      </tr>
+      <tr>
+        <th>参加料金</th>
+        <td><%= @event.event_price %> 円</td>
+      </tr>
+      <tr>
+        <th>開催日時</th>
+        <td><%= @event.start_time.to_s(:datetime_jp) %> ~ <%= @event.end_time.to_s(:datetime_jp) %></td>
+      </tr>
+      <tr>
+        <th>開催場所</th>
+        <td><%= @event.address %></td>
+      </tr>
+      <tr>
+        <th>Googleマップ</th>
+        <td>
+          <div id="map" data-lat-id="<%= @event.latitude %>" data-lng-id="<%= @event.longitude %>"></div>
+          <p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@event.latitude},#{@event.longitude}&iwloc=J", target: "_blank" %></p>
+        </td>
+      </tr>
+    </thead>
+  </table>
+  <div class="actions">
+    <%= link_to "このイベントに参加する", new_event_entry_path(@event.id), class: "btn btn-primary" %>
+  </div>
+  <div class="event-index-link">
+    <%= link_to "イベント一覧ページに戻る", events_path %>
   </div>
 </div>

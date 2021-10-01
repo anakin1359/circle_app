@@ -1,10 +1,17 @@
 ja:
   activerecord:
     models:
+      user: ユーザ
       event: "イベント"
       entry: "エントリー"
       post: "投稿"
     attributes:
+      user:
+        current_password: "現在のパスワード"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
       event:
         title: "タイトル"
         introduction: "イベント概要"

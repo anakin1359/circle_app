@@ -6,7 +6,12 @@
   <body>
     <div class="wrapper">
       <%= render 'layouts/header' %>
-      <%= yield %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+        
+          <%= yield %>
+        </div>
+      </div>
       <%= render 'layouts/footer' %>
     </div>
   </body>

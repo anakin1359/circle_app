@@ -1,61 +1,57 @@
 <% provide(:title, "イベント登録") %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="event-form">
-      <h2>イベント登録</h2>
-      <%= form_for(@event) do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
+<div class="event-form">
+  <h2>イベント登録</h2>
+  <%= form_for(@event) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
-        <div class="event-field">
-          <%= f.label :title, "イベント名", class: "label-item" %>
-          <%= f.text_field :title, class: 'form-control' %>
-        </div>
-
-        <div class="event-field">
-          <%= f.label :introduction, "イベント概要", class: "label-item" %>
-          <%= f.text_area :introduction, type: "textarea", class: 'form-control' %>
-        </div>
-
-        <div class="event-field">
-          <%= f.label :start_time, "開始日", class: "label-item" %>
-          <%= f.datetime_field :start_time, class: 'form-control' %>
-        </div>
-
-        <div class="event-field">
-          <%= f.label :end_time, "終了日", class: "label-item" %>
-          <%= f.datetime_field :end_time, class: 'form-control' %>
-        </div>
-
-        <div class="event-field">
-          <%= f.label :entry_count, "募集人数", class: "label-item" %>
-          <%= f.number_field :entry_count, class: 'form-control' %>
-        </div>
-
-        <div class="event-field">
-          <%= f.label :event_price, "料金", class: "label-item" %>
-          <%= f.number_field :event_price, class: 'form-control' %>
-        </div>
-
-        <div class="event-field">
-          <%= f.label :address, "開催場所", class: "label-item" %>
-          <%= f.text_field :address, class: 'form-control' %>
-        </div>
-
-        <div class="event-field">
-          <%= f.label :event_icon, "イベントイメージ（任意）", class: "label-item" %>
-          <%= f.file_field :event_icon, class: 'form-control' %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "イベントを登録する", class: "btn btn-primary" %>
-        </div>
-
-        <div class="mypage-link">
-          <%= link_to "マイページ", user_path(current_user.id) %>
-        </div>
-
-      <% end %>
+    <div class="event-field">
+      <%= f.label :title, "イベント名", class: "label-item" %>
+      <%= f.text_field :title, class: 'form-control' %>
     </div>
-  </div>
+
+    <div class="event-field">
+      <%= f.label :introduction, "イベント概要", class: "label-item" %>
+      <%= f.text_area :introduction, type: "textarea", class: 'form-control' %>
+    </div>
+
+    <div class="event-field">
+      <%= f.label :start_time, "開始日", class: "label-item" %>
+      <%= f.datetime_field :start_time, class: 'form-control' %>
+    </div>
+
+    <div class="event-field">
+      <%= f.label :end_time, "終了日", class: "label-item" %>
+      <%= f.datetime_field :end_time, class: 'form-control' %>
+    </div>
+
+    <div class="event-field">
+      <%= f.label :entry_count, "募集人数", class: "label-item" %>
+      <%= f.number_field :entry_count, class: 'form-control' %>
+    </div>
+
+    <div class="event-field">
+      <%= f.label :event_price, "料金", class: "label-item" %>
+      <%= f.number_field :event_price, class: 'form-control' %>
+    </div>
+
+    <div class="event-field">
+      <%= f.label :address, "開催場所", class: "label-item" %>
+      <%= f.text_field :address, class: 'form-control' %>
+    </div>
+
+    <div class="event-field">
+      <%= f.label :event_icon, "イベントイメージ（任意）", class: "label-item" %>
+      <%= f.file_field :event_icon, class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "イベントを登録する", class: "btn btn-primary" %>
+    </div>
+
+    <div class="mypage-link">
+      <%= link_to "マイページ", user_path(current_user.id) %>
+    </div>
+
+  <% end %>
 </div>
