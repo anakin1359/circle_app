@@ -2,6 +2,8 @@
 
 <div class="mypage-form">
   <h2><%= image_tag("#{@user.user_icon}") %><%= @user.name %> さん</h2>
+  <%= render 'layouts/notification' %>
+
   <section>
   <div class="section-title">
     <span>操作</span>
