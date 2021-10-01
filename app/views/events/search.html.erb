@@ -1,37 +1,33 @@
 <% provide(:title, "登録済みイベント一覧（検索結果）") %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="events-index">
-      <h2>登録済みイベント一覧（検索結果）</h2>
+<div class="events-index">
+  <h2>登録済みイベント一覧（検索結果）</h2>
 
-      <table>
-        <thead>
-          <tr>
-            <th class="event-item">開催日時</th>
-            <th class="event-item">イベント名</th>
-            <th class="event-item">イベント概要</th>
-            <th class="event-operation">操作</th>
-            <th colspan="2" class="event-operation">操作（管理者）</th>
-          </tr>
-        </thead>
+  <table>
+    <thead>
+      <tr>
+        <th class="event-item">開催日時</th>
+        <th class="event-item">イベント名</th>
+        <th class="event-item">イベント概要</th>
+        <th class="event-operation">操作</th>
+        <th colspan="2" class="event-operation">操作（管理者）</th>
+      </tr>
+    </thead>
 
-        <tbody>
-          <% @results.each do |f| %>
-            <tr>
-              <td class="event-item"><%= f.start_time.to_s(:datetime_jp) %> ~ </td>
-              <td class="event-item"><%= f.title %></td>
-              <td class="event-item"><%= f.introduction %></td>
-              <td class="event-operation"><%= link_to "詳細", user_event_path(current_user.id, f.id), class: "btn btn-primary" %></td>
-              <td class="event-operation"><%= link_to "編集", edit_event_path(f.id), class: "btn btn-success" %></td>
-              <td class="event-operation"><%= link_to "削除", f, method: :delete, data: { confirm: "イベントを削除します。よろしいですか?" }, class: "btn btn-danger" %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <tbody>
+      <% @results.each do |f| %>
+        <tr>
+          <td class="event-item"><%= f.start_time.to_s(:datetime_jp) %> ~ </td>
+          <td class="event-item"><%= f.title %></td>
+          <td class="event-item"><%= f.introduction %></td>
+          <td class="event-operation"><%= link_to "詳細", user_event_path(current_user.id, f.id), class: "btn btn-primary" %></td>
+          <td class="event-operation"><%= link_to "編集", edit_event_path(f.id), class: "btn btn-success" %></td>
+          <td class="event-operation"><%= link_to "削除", f, method: :delete, data: { confirm: "イベントを削除します。よろしいですか?" }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-      <%= link_to "イベント一覧画面に戻る", events_path, class: "events-index-url" %>
+  <%= link_to "イベント一覧画面に戻る", events_path, class: "events-index-url" %>
 
-    </div>
-  </div>
 </div>

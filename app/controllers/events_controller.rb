@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
     if @event.save
       flash[:notice] = "イベント登録が完了しました"
-      redirect_to user_path(current_user.id)
+      redirect_to events_path
     else
       render new_event_path
     end
