@@ -2,11 +2,7 @@
 
 <div class="entries-index">
   <h2>予約履歴一覧</h2>
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-      <%= value %>
-    </div>
-  <% end %>
+  <%= render 'layouts/notification' %>
 
   <%= search_form_for @q, url: user_search_entries_path(current_user.id) do |f| %>
     <section>

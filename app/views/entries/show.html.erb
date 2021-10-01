@@ -56,7 +56,7 @@
   <div class="post-form">
     <h2>連絡事項</h2>
     <p>以下フォームよりご投稿ください</p>
-    <%= form_for(@post, url: "/users/#{current_user.id}/entries/#{@entry.id}/posts" ) do |f| %>
+    <%= form_for(@post, url: "/users/#{current_user.id}/entries/#{@entry.id}/posts/" ) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <div class="post-field">
