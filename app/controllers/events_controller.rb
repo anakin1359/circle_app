@@ -23,7 +23,7 @@ class EventsController < ApplicationController
       flash[:notice] = "イベント登録が完了しました"
       redirect_to events_path
     else
-      render new_event_path
+      render :new
     end
   end
 
