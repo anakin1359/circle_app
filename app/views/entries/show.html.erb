@@ -93,5 +93,8 @@
       </thead>
     </table>
     <%= paginate @posts %>
+    <div class="entry-index-link">
+      <%= link_to "予約一覧ページに戻る", user_entries_path(current_user.id) %>
+    </div>
   </div>
 </div>

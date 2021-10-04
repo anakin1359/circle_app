@@ -46,7 +46,8 @@ class EventsController < ApplicationController
       redirect_to events_path
     else
       flash[:alert] = "イベントの更新に失敗しました"
-      redirect_to edit_event_path(@event.id)
+      # redirect_to edit_event_path(@event.id)
+      render :edit
     end
   end
 
