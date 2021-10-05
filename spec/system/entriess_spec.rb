@@ -57,4 +57,64 @@ RSpec.describe "Entries", type: :system do
       end
     end
   end
+
+  describe "予約履歴を確認する時" do
+    let!(:user) { create(:user) }
+    let!(:admin) { create(:user, admin: true) }
+    let!(:event) { create(:event, user_id: admin.id) }
+    let!(:entry) { create(:entry, user_id: user.id, event_id: event.id) }
+
+    before do
+      sign_in user
+    end
+    
+    context "予約履歴一覧にアクセスした場合" do
+      it "予約したイベントが一覧に存在している" do
+        visit user_entries_path(user.id)
+        expect(page).to have_text("test_event")
+      end
+    end
+
+    context "前の画面（予約履歴一覧）に戻る場合" do
+      it "予約履歴一覧ページ上に戻ることができている" do
+        visit user_entry_path(user.id, entry.id)
+        within(:css, '.entry-index-link') do
+          click_link('予約一覧ページに戻る')
+        end
+      end
+    end
+  end
+
+  describe "予約内容をキャンセルする場合" do
+    let!(:user) { create(:user) }
+    let!(:admin) { create(:user, admin: true) }
+    let!(:event) { create(:event, user_id: admin.id) }
+    let!(:entry) { create(:entry, user_id: user.id, event_id: event.id) }
+
+    before do
+      sign_in user
+    end
+
+    context "予約内容ページから「このイベントをキャンセルする」を押下した場合" do
+      before do
+        visit user_entry_path(user.id, entry.id)
+      end
+
+      it "確認ダイアログが表示されている", js: true do
+        page.dismiss_confirm("イベントをキャンセルします。よろしいですか?")  do
+          click_on('このイベントをキャンセルする')
+        end
+      end
+
+      it "予約履歴一覧ページにリダイレクトし、flashメッセージが表示されている", js: true do
+        page.accept_confirm do
+          click_on('このイベントをキャンセルする')
+        end
+        sleep 0.5
+        expect(current_path).to eq user_entries_path(user.id)
+        expect(page).to have_content('予約を取り消しました')
+        expect(page).not_to have_text("test_event")
+      end
+    end
+  end
 end
