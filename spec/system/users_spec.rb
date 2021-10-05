@@ -315,47 +315,49 @@ RSpec.describe "Users", type: :system do
     end
   end
 
-  # describe "ユーザログインを行う場合" do
-  #   before do
-  #     @user = create(:user)
-  #     visit new_user_session_path
-  #   end
+  describe "ユーザログインを行う場合" do
+    let!(:user) { create(:user, email: "user001@example.com", password: "password01") }
 
-  #   scenario "成功した場合はflashメッセージ（success）が表示されている" do
-  #     fill_in('user[email]',    with: 'user001@example.com')
-  #     fill_in('user[password]', with: 'password01')
-  #     click_button('Log in')
-  #     expect(page).to have_text('ログインしました')
-  #   end
+    before do
+      # @user = create(:user)
+      visit new_user_session_path
+    end
 
-  #   scenario "失敗した場合はflashメッセージ（alert）が表示されている（メールアドレス未入力）" do
-  #     fill_in('user[email]',    with: '')
-  #     fill_in('user[password]', with: 'password01')
-  #     click_button('Log in')
-  #     expect(page).to have_text('メールアドレスまたはパスワードが違います')
-  #   end
+    scenario "成功した場合はflashメッセージ（success）が表示されている" do
+      fill_in('user[email]',    with: 'user001@example.com')
+      fill_in('user[password]', with: 'password01')
+      click_button('Log in')
+      expect(page).to have_text('ログインしました')
+    end
 
-  #   scenario "失敗した場合はflashメッセージ（alert）が表示されている（メールアドレス不一致）" do
-  #     fill_in('user[email]',    with: 'user10@example.com')
-  #     fill_in('user[password]', with: 'password01')
-  #     click_button('Log in')
-  #     expect(page).to have_text('メールアドレスまたはパスワードが違います')
-  #   end
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（メールアドレス未入力）" do
+      fill_in('user[email]',    with: '')
+      fill_in('user[password]', with: 'password01')
+      click_button('Log in')
+      expect(page).to have_text('メールアドレスまたはパスワードが違います')
+    end
 
-  #   scenario "失敗した場合はflashメッセージ（alert）が表示されている（パスワード未入力）" do
-  #     fill_in('user[email]',    with: 'user01@example.com')
-  #     fill_in('user[password]', with: '')
-  #     click_button('Log in')
-  #     expect(page).to have_text('メールアドレスまたはパスワードが違います')
-  #   end
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（メールアドレス不一致）" do
+      fill_in('user[email]',    with: 'user10@example.com')
+      fill_in('user[password]', with: 'password01')
+      click_button('Log in')
+      expect(page).to have_text('メールアドレスまたはパスワードが違います')
+    end
 
-  #   scenario "失敗した場合はflashメッセージ（alert）が表示されている（パスワード不一致）" do
-  #     fill_in('user[email]',    with: 'user01@example.com')
-  #     fill_in('user[password]', with: 'password10')
-  #     click_button('Log in')
-  #     expect(page).to have_text('メールアドレスまたはパスワードが違います')
-  #   end
-  # end
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（パスワード未入力）" do
+      fill_in('user[email]',    with: 'user01@example.com')
+      fill_in('user[password]', with: '')
+      click_button('Log in')
+      expect(page).to have_text('メールアドレスまたはパスワードが違います')
+    end
+
+    scenario "失敗した場合はflashメッセージ（alert）が表示されている（パスワード不一致）" do
+      fill_in('user[email]',    with: 'user01@example.com')
+      fill_in('user[password]', with: 'password10')
+      click_button('Log in')
+      expect(page).to have_text('メールアドレスまたはパスワードが違います')
+    end
+  end
 
   # describe "ユーザ情報の編集を行う場合" do
   #   before do
