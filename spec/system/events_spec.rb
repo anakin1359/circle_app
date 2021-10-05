@@ -2,9 +2,9 @@ require 'rails_helper'
 require 'support/capybara'
 
 RSpec.describe "Events", type: :system do
-  let(:admin) { create(:user, admin: true) }
-
   describe "イベント登録をする時" do
+    let(:admin) { create(:user, admin: true) }
+
     before do
       sign_in admin
       visit new_event_path

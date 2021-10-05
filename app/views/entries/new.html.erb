@@ -65,11 +65,11 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "イベントに参加する", class: "btn btn-primary", data: { confirm: "このイベントに参加します。よろしいですか?"} %>
+      <%= f.submit "イベントに参加する", class: "btn btn-primary" %>
     </div>
 
   <% end %>
-  <div class="sample">
-    <%= link_to "イベント詳細ページに戻る", user_entry_path(current_user.id, @event.id) %>
+  <div class="entry-link">
+    <%= link_to "イベント詳細ページに戻る", user_event_path(current_user.id, @event.id) %>
   </div>
 </div>
