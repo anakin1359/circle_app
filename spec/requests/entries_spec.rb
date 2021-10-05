@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe "Entries", type: :request do
   describe "イベントに参加する時（entry/new）" do
     before do
+      @user = create(:user)
       @event = create(:event)
+      sign_in @user
     end
 
     context "マイページ >> 対象イベントを選択 >> イベントに参加する にアクセスした場合" do

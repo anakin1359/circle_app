@@ -3,7 +3,7 @@
 <div class="sign-form">
   <h2>Login</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= render "users/shared/error_messages", resource: resource %>
+    <%= render 'layouts/notification' %>
 
     <div class="field">
       <%= f.label :email, class: "label-item" %><br />
@@ -14,6 +14,13 @@
       <%= f.label :password, class: "label-item" %><br />
       <%= f.password_field :password, placeholder: "password" %>
     </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
 
     <div class="actions">
       <%= f.submit "Log in", class: "btn btn-primary" %>
