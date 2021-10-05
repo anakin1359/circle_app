@@ -54,7 +54,7 @@
     <h2>連絡事項</h2>
     <p>以下フォームよりご投稿ください</p>
     <%= form_for(@post, url: "/users/#{current_user.id}/entries/#{@entry.id}/posts/" ) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+      <%= render 'layouts/notification' %>
 
       <div class="post-field">
         <%= f.text_field :subject, placeholder: "件名:", class: 'form-control' %>
