@@ -47,9 +47,6 @@
   <div class="actions">
     <%= link_to "このイベントをキャンセルする", user_entry_path(current_user.id, @entry.id), method: :delete, data: { confirm: "イベントをキャンセルします。よろしいですか?" }, class: "btn btn-danger" %>
   </div>
-  <div class="entry-index-link">
-    <%= link_to "予約一覧ページに戻る", user_entries_path(current_user.id) %>
-  </div>
 </div>
 
 <div class="post-section">
@@ -57,7 +54,7 @@
     <h2>連絡事項</h2>
     <p>以下フォームよりご投稿ください</p>
     <%= form_for(@post, url: "/users/#{current_user.id}/entries/#{@entry.id}/posts/" ) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+      <%= render 'layouts/notification' %>
 
       <div class="post-field">
         <%= f.text_field :subject, placeholder: "件名:", class: 'form-control' %>
@@ -93,5 +90,8 @@
       </thead>
     </table>
     <%= paginate @posts %>
+    <div class="entry-index-link">
+      <%= link_to "予約一覧ページに戻る", user_entries_path(current_user.id) %>
+    </div>
   </div>
 </div>
