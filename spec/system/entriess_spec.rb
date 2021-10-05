@@ -36,9 +36,7 @@ RSpec.describe "Entries", type: :system do
         fill_in('entry[entry_count]', with: 3)
         sleep 1
         click_button('イベントに参加する')
-        # expect(current_path).to eq user_entries_path(user.id)
-        expect(current_path).to eq "/events/#{event.id}/entries/"
-        expect(page).to have_content('イベントを更新しました')
+        expect(current_path).to eq user_entries_path(user.id)
         expect(page).to have_content('イベント予約が完了しました')
       end
     end
