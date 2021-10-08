@@ -1,0 +1,7 @@
+db_1   | PostgreSQL Database directory appears to contain a database; Skipping initialization
+db_1   | 2021-10-08 15:27:35.160 UTC [1] FATAL:  database files are incompatible with server
+db_1   | 2021-10-08 15:27:35.160 UTC [1] DETAIL:  The data directory was initialized by PostgreSQL version 13, which is not compatible with this version 14.0 (Debian 14.0-1.pgdg110+1).
+---
+db_1 | PostgreSQL Database directory appears to contain a database; Skipping initialization
+db_1 | 2021-10-08 15:27:35.160 UTC [1] FATAL: database files are incompatible with server
+db_1 | 2021-10-08 15:27:35.160 UTC [1] DETAIL:  データディレクトリはPostgreSQLバージョン13で初期化されており、このバージョン14.0(Debian 14.0-1.pgdg110+1)とは互換性がありません。
