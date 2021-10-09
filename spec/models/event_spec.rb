@@ -142,11 +142,11 @@ RSpec.describe Event, type: :model do
       end
     end
 
-    # context "住所が正しく入力されている場合" do
-    #   it "入力された住所に対応する緯度/経度の情報を取得している" do
-    #     expect(@event.latitude).to eq 35.6972683
-    #     expect(@event.longitude).to eq 139.7615239
-    #   end
-    # end
+    context "住所が正しく入力されている場合" do
+      it "入力された住所に対応する緯度/経度の情報を取得している" do
+        expect(@event.latitude).to eq 35.6972683
+        expect(@event.longitude).to eq 139.7615239
+      end
+    end
   end
 end
