@@ -35,6 +35,8 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
           POSTGRES_DB: develop_test
+      - image: selenium/standalone-chrome-debug:latest
+        name: chrome
     steps:
       - checkout
       - restore_cache:
