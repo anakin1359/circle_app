@@ -62,7 +62,7 @@ RSpec.describe "Events", type: :system do
 
     context "全ての項目が正しく入力できている場合（編集）" do
       it "登録済みイベント一覧にリダイレクトし、編集完了のflashメッセージが表示されている" do
-        fill_in('event[address]',      with: '京都府京都市北区等持院北町５６−１')
+        fill_in('event[address]', with: '京都府京都市北区等持院北町５６−１')
         click_button('イベントを変更する')
         expect(current_path).to eq events_path
         expect(page).to have_content('イベントを更新しました')
@@ -83,15 +83,15 @@ RSpec.describe "Events", type: :system do
       end
     end
 
-  context "前の画面（イベント一覧ページ）に戻る場合" do
-      it "自身のページに戻ることができている" do
-        within(:css, '.event-index-link') do
-          click_link('イベント一覧ページ')
-        end
-        expect(current_path).to eq events_path
-        expect(page).to have_text("登録済みイベント一覧")
-      end
-    end
+    # context "前の画面（イベント一覧ページ）に戻る場合" do
+    #   it "自身のページに戻ることができている" do
+    #     within(:css, '.event-index-link') do
+    #       click_link('イベント一覧ページ')
+    #     end
+    #     expect(current_path).to eq events_path
+    #     expect(page).to have_text("登録済みイベント一覧")
+    #   end
+    # end
   end
 
   # describe "登録済みイベントを削除する時" do
@@ -104,7 +104,7 @@ RSpec.describe "Events", type: :system do
   #   end
 
   #   context "削除ボタンを押下した場合" do
-  #     scenario "確認ダイアログが表示されている" do
+  #     it "確認ダイアログが表示されている" do
   #       click_on('削除')
   #       find('a', text: '削除').click
   #       expect(page.driver.browser.switch_to.alert.text).to eq "イベントを削除します。よろしいですか?"
