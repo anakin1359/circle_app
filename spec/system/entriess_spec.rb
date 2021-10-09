@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'support/capybara'
 
-RSpec.describe "Entries", type: :system do  
+RSpec.describe "Entries", type: :system do
   describe "イベントに参加する時" do
     let(:user) { create(:user) }
     let(:admin) { create(:user, admin: true) }
@@ -67,7 +67,7 @@ RSpec.describe "Entries", type: :system do
     before do
       sign_in user
     end
-    
+
     context "予約履歴一覧にアクセスした場合" do
       it "予約したイベントが一覧に存在している" do
         visit user_entries_path(user.id)
@@ -101,7 +101,7 @@ RSpec.describe "Entries", type: :system do
       end
 
       it "確認ダイアログが表示されている", js: true do
-        page.dismiss_confirm("イベントをキャンセルします。よろしいですか?")  do
+        page.dismiss_confirm("イベントをキャンセルします。よろしいですか?") do
           click_on('このイベントをキャンセルする')
         end
       end

@@ -25,6 +25,9 @@ Metrics/LineLength:
 RSpec/EmptyLineAfterSubject:
   Enabled: false
 
+Lint/UselessAssignment:
+  Enabled: false
+
 Airbnb/DefaultScope:
   Enabled: false
 
