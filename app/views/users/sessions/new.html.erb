@@ -26,5 +26,21 @@
       <%= f.submit "Log in", class: "btn btn-primary" %>
     </div>
   <% end %>
+  <div class="account-list">
+    <div class="account1">
+      <p>ゲストアカウント1（一般）</p>
+      <ul>
+        <li>MAIL: anakin1359@gmail.com</li>
+        <li>PW: password01</li>
+      </ul>
+    </div>
+    <div class="account2">
+      <p>ゲストアカウント2（管理）</p>
+      <ul>
+        <li>MAIL: admin@example.com</li>
+        <li>PW: password0#</li>
+      </ul>
+    </div>
+  </div>
   <%= link_to "アカウントを登録する", new_user_registration_path %>
 </div>
