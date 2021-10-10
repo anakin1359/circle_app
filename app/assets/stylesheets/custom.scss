@@ -152,7 +152,7 @@ p {
 
 .about-section {
   padding: 30px 60px;
-  margin: 20px 70px;
+  margin: 20px 70px 100px 70px;
   background: #FFF;
   border-radius: 3px;
   box-shadow: 0 0px 20px rgba(0,0,0,0.2);
@@ -172,6 +172,7 @@ p {
 
   .premise {
     padding-bottom: 10px;
+    margin-bottom: 30px;
     .static_mypage_img {
       width: 50%;
       padding: 10px 0px 5px 0px;
@@ -180,20 +181,43 @@ p {
 
   .how-to-entry-new {
     padding-bottom: 10px;
+    margin-bottom: 30px;
     .case {
       margin-top: 20px;
+      .case-1,.case-2 {
+        margin-bottom: 30px;
+      }
+      .static_mypage_img {
+        width: 50%;
+        padding: 10px 0px 5px 0px;
+      }
     }
   }
 
   .how-to-entry-show {
     padding-bottom: 10px;
+    margin-bottom: 30px;
+    .static_mypage_img {
+      width: 50%;
+      padding: 10px 0px 5px 0px;
+    }
   }
 
   .how-to-entry-cancel {
     padding-bottom: 10px;
+    margin-bottom: 30px;
+    .static_mypage_img {
+      width: 50%;
+      padding: 10px 0px 10px 0px;
+    }
   }
 
   .how-to-other {
     padding-bottom: 10px;
+    margin-bottom: 30px;
+    .static_mypage_img {
+      width: 50%;
+      padding: 10px 0px 10px 0px;
+    }
   }
 }
