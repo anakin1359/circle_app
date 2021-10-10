@@ -9,8 +9,10 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %><b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-              <li><%= link_to "ユーザ編集画面", edit_user_registration_path %></li>
+              <li><%= link_to "イベント参加", events_path %></li>
+              <li><%= link_to "カレンダーを表示", events_scheduler_path %></li>
               <li><%= link_to "イベント予約履歴", user_entries_path(current_user.id) %></li>
+              <li><%= link_to "ユーザ編集画面", edit_user_registration_path %></li>
                 <% if current_user.admin? %>
                   <li><%= link_to "イベント登録", new_event_path %></li>
                   <li><%= link_to "登録済みイベント一覧", events_path %></li>
