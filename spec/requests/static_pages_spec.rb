@@ -15,5 +15,12 @@ RSpec.describe "StaticPages", type: :request do
         expect(response).to have_http_status(200)
       end
     end
+
+    context "「 Circle appについて」画面にアクセスした場合" do
+      it "returns http success" do
+        get about_path
+        expect(response).to have_http_status(200)
+      end
+    end
   end
 end

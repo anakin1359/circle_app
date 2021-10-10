@@ -38,9 +38,14 @@ RSpec.describe "StaticPages", type: :system do
     end
 
     context "footer部のcontactページのリンクから" do
-      it "問い合わせ画面にアクセスができる" do
-        click_link "Contact"
-        expect(current_path).to eq contact_path
+      # it "問い合わせ画面にアクセスができる" do
+      #   click_link "Contact"
+      #   expect(current_path).to eq contact_path
+      # end
+
+      it "「Circle appについて」画面にアクセスができる" do
+        click_link "Circle appについて"
+        expect(current_path).to eq about_path
       end
     end
   end

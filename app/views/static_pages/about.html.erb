@@ -1,0 +1,57 @@
+<% provide(:title, 'Circle appについて') %>
+
+<div class="about-section">
+  <h2>How to Circle_app?</h2>
+  <div class="premise">
+    <h4>[はじめに]</h4>
+    <li>サイト内で操作を行うためにはアカウントの登録、もしくはログインを行なっていただく必要があります</li>
+    <li>ログイン完了後、マイページ画面よりイベントの予約、確認を行うことができます</li>
+    <li>以下、ログイン後のマイページ画面</li>
+    <%= image_tag 'static_mypage.png', class: "static_mypage_img" %>
+  </div>
+
+  <div class="how-to-entry-new">
+    <h4>[イベントに参加する]</h4>
+    <div class="case">
+      <p>例）こんな時はどう使用するか</p>
+      <div class="case-1">
+        <li>1）イベントのタイトルや開催場所などがわかっている場合</li>
+        <p>→ 「イベントに参加する」から目的のイベントを見つける</p>
+        <%= image_tag 'static_mypage_1.png', class: "static_mypage_img" %>
+        <%= image_tag 'events_index.png', class: "static_mypage_img" %>
+      </div>
+
+      <div class="case-2">
+        <li>2）イベントの開催日がわかっている場合</li>
+        <p>→ 「イベントカレンダーを見る」から目的のイベントを見つける</p>
+        <%= image_tag 'static_mypage_2.png', class: "static_mypage_img" %>
+        <%= image_tag 'events_calendar.png', class: "static_mypage_img" %>
+      </div>
+    </div>
+    <p>イベントの内容を確認して問題がなければ<span>「イベントに参加する」</span>を押して予約が完了です</p>
+  </div>
+
+  <div class="how-to-entry-show">
+    <h4>[参加したイベントの履歴を確認する]</h4>
+    <p>参加予定のイベントは<span>「予約履歴」</span>から確認することができます</p>
+    <p>※イベント参加を実行後に予約ができていることを確認しましょう</p>
+    <%= image_tag 'static_mypage_3.png', class: "static_mypage_img" %>
+    <%= image_tag 'entry_show.png', class: "static_mypage_img" %>
+  </div>
+
+  <div class="how-to-entry-cancel">
+    <h4>[参加したイベントをキャンセルする]</h4>
+    <p>予約後に、万が一参加が難しくなってしまった場合は予約のキャンセルを行いましょう</p>
+    <p>予約履歴から自分が予約しているイベントを選択し、内容確認後に<span>「このイベントをキャンセルする」</span>を押してキャンセルが完了です</p>
+    <%= image_tag 'static_mypage_3.png', class: "static_mypage_img" %>
+    <%= image_tag 'entry_show.png', class: "static_mypage_img" %>
+    <%= image_tag 'entry_cancel.png', class: "static_mypage_img" %>
+  </div>
+
+  <div class="how-to-other">
+    <h4>[その他]</h4>
+    <li>日時/持ち物の変更、助っ人募集などの連絡がある場合、管理者から予約画面下部の<span>「連絡事項」</span>で周知させていただくことがあります</li>
+    <li>予約済みイベントに関して、確認したい内容があればメンバーからも投稿することができます</li>
+    <%= image_tag 'entry_comment.png', class: "static_mypage_img" %>
+  </div>
+</div>
