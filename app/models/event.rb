@@ -20,14 +20,12 @@ class Event < ApplicationRecord
 
   private
 
-  # アップロードされた画像サイズを検査
   def event_icon_size
     if event_icon.size > 1.megabytes
       errors.add(:event_icon, "should be less than 1MB")
     end
   end
 
-  # 開始日と終了日の矛盾解消
   def start_end_check
     if start_time.present? && end_time.present?
       unless start_time < end_time

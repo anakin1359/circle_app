@@ -12,7 +12,6 @@ class User < ApplicationRecord
 
   private
 
-  # アップロードされた画像サイズを検査
   def user_icon_size
     if user_icon.size > 1.megabytes
       errors.add(:user_icon, "should be less than 1MB")
