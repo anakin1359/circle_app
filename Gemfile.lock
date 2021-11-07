@@ -415,7 +415,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-sass (= 3.3.7)
   bootstrap-will_paginate (= 1.0.0)
-  bullet
+  bullet (= 6.1.4)
   byebug
   capistrano (= 3.16.0)
   capistrano-bundler (= 2.0.1)
@@ -423,45 +423,45 @@ DEPENDENCIES
   capistrano-rbenv (= 2.2.0)
   capistrano3-unicorn (= 0.2.1)
   capybara (>= 2.15)
-  carrierwave (~> 2.0)
-  chromedriver-helper
+  carrierwave (= 2.2.2)
+  chromedriver-helper (= 2.1.1)
   coffee-rails (~> 4.2)
-  config
-  devise
-  devise-i18n
-  dotenv-rails
-  factory_bot_rails
-  faker
-  font-awesome-rails
-  geocoder
-  gon
+  config (= 3.1.0)
+  devise (= 4.8.0)
+  devise-i18n (= 1.10.0)
+  dotenv-rails (= 2.7.6)
+  factory_bot_rails (= 6.2.0)
+  faker (= 2.18.0)
+  font-awesome-rails (~> 4.7)
+  geocoder (= 1.6.7)
+  gon (= 6.4.0)
   jbuilder (~> 2.5)
-  jquery-rails
-  kaminari
+  jquery-rails (= 4.4.0)
+  kaminari (= 1.2.1)
   listen (>= 3.0.5, < 3.2)
-  mini_magick
+  mini_magick (= 4.11.0)
   pg (>= 0.18, < 2.0)
-  pry-byebug
-  pry-doc
-  pry-rails
+  pry-byebug (= 3.9.0)
+  pry-doc (= 1.1.0)
+  pry-rails (= 0.3.9)
   puma (~> 3.11)
   rails (~> 5.2.6)
-  rails-erd
-  rails-i18n
-  ransack
-  rspec-rails
+  rails-erd (= 1.6.1)
+  rails-i18n (= 5.1.3)
+  ransack (= 2.4.1)
+  rspec-rails (= 5.0.1)
   rubocop
-  rubocop-airbnb
+  rubocop-airbnb (= 3.0.2)
   sass-rails (~> 5.0)
-  selenium-webdriver
-  simple_calendar
-  spring
-  spring-watcher-listen (~> 2.0.0)
+  selenium-webdriver (= 3.142.7)
+  simple_calendar (= 2.4.3)
+  spring (= 2.1.1)
+  spring-watcher-listen (= 2.0.1)
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   unicorn (= 6.0.0)
-  web-console (>= 3.3.0)
+  web-console (= 3.7.0)
   will_paginate (= 3.1.7)
 
 RUBY VERSION
