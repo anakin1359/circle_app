@@ -35,6 +35,7 @@ gem 'gon',                      '6.4.0'
 gem 'simple_calendar',          '2.4.3'
 gem 'ransack',                  '2.4.1'
 gem 'unicorn',                  '6.0.0'
+gem 'webpacker',                '5.4.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
