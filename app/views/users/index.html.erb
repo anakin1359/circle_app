@@ -6,6 +6,9 @@
   
   <ul class="users">
     <%= render @users %>
+    <h2>
+      <%= react_component("HelloMessage", { greeting: "Hello from react-rails." }) %>
+    </h2>
   </ul>
   
   <%= will_paginate %>
